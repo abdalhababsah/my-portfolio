@@ -7,10 +7,10 @@
 <div class="card">
     <div class="card-body">
         @if (isset($project))
-        <form class="row g-3" method="POST" action="{{ route('project.update', $project->id) }}" enctype="multipart/form-data">
+        <form class="row g-3" method="POST" action="{{ route('admin.project.update', $project->id) }}" enctype="multipart/form-data">
             @method('PUT')
         @else
-        <form class="row g-3" method="POST" action="{{ route('project.store') }}" enctype="multipart/form-data">
+        <form class="row g-3" method="POST" action="{{ route('admin.project.store') }}" enctype="multipart/form-data">
         @endif
             @csrf
             <input type="hidden" name="project_id" value="{{ $project->id ?? '' }}">

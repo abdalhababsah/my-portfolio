@@ -88,7 +88,7 @@ class ProjectsController extends Controller
         );
 
 
-        return redirect()->route('projects.index')->with('success', 'Project created or updated successfully.');
+        return redirect()->route('admin.projects.index')->with('success', 'Project created or updated successfully.');
     }
     public function edit($id)
     {
