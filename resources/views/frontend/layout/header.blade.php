@@ -5,16 +5,16 @@
                 <div class="logo">
                     <h1>
                         <a href="{{ route('home') }}" title="Home">
-                            <img class="scheme1-light-logo" src="{{ asset('assets/images/logo1-light.png') }}" alt="Logo" loading="lazy">
-                            <img class="scheme2-light-logo position-absolute" src="{{ asset('assets/images/logo2-light.png') }}" alt="Logo" loading="lazy">
-                            <img class="scheme3-light-logo position-absolute" src="{{ asset('assets/images/logo3-light.png') }}" alt="Logo" loading="lazy">
-                            <img class="scheme4-light-logo position-absolute" src="{{ asset('assets/images/logo4-light.png') }}" alt="Logo" loading="lazy">
-                            <img class="scheme5-light-logo position-absolute" src="{{ asset('assets/images/logo5-light.png') }}" alt="Logo" loading="lazy">
-                            <img class="scheme1-dark-logo position-absolute" src="{{ asset('assets/images/logo1-dark.png') }}" alt="Logo" loading="lazy">
-                            <img class="scheme2-dark-logo position-absolute" src="{{ asset('assets/images/logo2-dark.png') }}" alt="Logo" loading="lazy">
-                            <img class="scheme3-dark-logo position-absolute" src="{{ asset('assets/images/logo3-dark.png') }}" alt="Logo" loading="lazy">
-                            <img class="scheme4-dark-logo position-absolute" src="{{ asset('assets/images/logo4-dark.png') }}" alt="Logo" loading="lazy">
-                            <img class="scheme5-dark-logo position-absolute" src="{{ asset('assets/images/logo5-dark.png') }}" alt="Logo" loading="lazy">
+                            <img class="scheme1-light-logo" src="{{ asset('frontend/assets/images/logo1-light.png') }}" alt="Logo" loading="lazy">
+                            <img class="scheme2-light-logo position-absolute" src="{{ asset('frontend/assets/images/logo2-light.png') }}" alt="Logo" loading="lazy">
+                            <img class="scheme3-light-logo position-absolute" src="{{ asset('frontend/assets/images/logo3-light.png') }}" alt="Logo" loading="lazy">
+                            <img class="scheme4-light-logo position-absolute" src="{{ asset('frontend/assets/images/logo4-light.png') }}" alt="Logo" loading="lazy">
+                            <img class="scheme5-light-logo position-absolute" src="{{ asset('frontend/assets/images/logo5-light.png') }}" alt="Logo" loading="lazy">
+                            <img class="scheme1-dark-logo position-absolute" src="{{ asset('frontend/assets/images/logo1-dark.png') }}" alt="Logo" loading="lazy">
+                            <img class="scheme2-dark-logo position-absolute" src="{{ asset('frontend/assets/images/logo2-dark.png') }}" alt="Logo" loading="lazy">
+                            <img class="scheme3-dark-logo position-absolute" src="{{ asset('frontend/assets/images/logo3-dark.png') }}" alt="Logo" loading="lazy">
+                            <img class="scheme4-dark-logo position-absolute" src="{{ asset('frontend/assets/images/logo4-dark.png') }}" alt="Logo" loading="lazy">
+                            <img class="scheme5-dark-logo position-absolute" src="{{ asset('frontend/assets/images/logo5-dark.png') }}" alt="Logo" loading="lazy">
                         </a>
                     </h1>
                 </div><!-- Logo -->
@@ -46,7 +46,7 @@
                                 <li class="menu-item-has-children">
                                     <a href="#" title="">Services <i class="far fa-angle-right"></i></a>
                                     <ul>
-                                        <li><a href="{{ route('services') }}" title="">Services</a></li>
+                                        <li><a href="{{ route('services.index') }}" title="">Services</a></li>
                                         <li><a href="{{ route('service.detail') }}" title="">Service Detail</a></li>
                                     </ul>
                                 </li>
