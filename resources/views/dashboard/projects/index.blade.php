@@ -2,7 +2,7 @@
 
 @section('content')
 
-@include('layouts.partials/page-title', ['title' => 'Darkone', 'subtitle' => 'projects'])
+@include('layouts.partials.page-title', ['title' => 'Darkone', 'subtitle' => 'projects'])
 
 <style>
     .table-responsive {

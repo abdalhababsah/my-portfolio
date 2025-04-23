@@ -410,9 +410,7 @@
                              <li class="sub-nav-item">
                                   <a class="sub-nav-link" href="{{ route('project-videos.index') }}">Project Videos</a>
                              </li>
-                             <li class="sub-nav-item">
-                                  <a class="sub-nav-link" href="{{ route('project-technology.index') }}">Project Technology</a>
-                             </li>
+
                              <li class="sub-nav-item">
                                   <a class="sub-nav-link" href="{{ route('admin.services.index') }}">Services</a>
                              </li>
