@@ -1,11 +1,18 @@
 <?php
 
+use App\Http\Controllers\Admin\ExperiencesController;
+use App\Http\Controllers\Admin\FaqsController;
 use App\Http\Controllers\Frontend\ProjectController;
 use App\Http\Controllers\Admin\ProjectsController;
 use App\Http\Controllers\Admin\servicesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoutingController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\EducationController;
+use App\Http\Controllers\Admin\CertificateController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProjectTechnologyController;
+use App\Http\Controllers\Admin\SkillsController;
 
 require __DIR__ . '/auth.php';
 
@@ -31,12 +38,15 @@ Route::get('/hire-me',        [HomeController::class, 'hireMe'])->name('hire.me'
 
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
-    Route::get('/projects',             [ProjectsController::class, 'index'])->name('admin.projects.index');
-    Route::get('/project/create',       [ProjectsController::class, 'create'])->name('admin.project.create');
-    Route::get('/project/edit/{id}',    [ProjectsController::class, 'edit'])->name('admin.project.edit');
-    Route::post('/project/store',       [ProjectsController::class, 'store'])->name('admin.project.store');
-    Route::put('/project/update/{id}',  [ProjectsController::class, 'update'])->name('admin.project.update');
+    Route::resource('projects', ProjectsController::class);
+    Route::resource('faqs', FaqsController::class);
+    Route::resource('experiences', ExperiencesController::class);
+    Route::resource('education', EducationController::class);
+    Route::resource('certificates', CertificateController::class)->names('certificates');
+    Route::resource('categories', CategoryController::class)->names('categories');
+    Route::resource('skills', SkillsController::class)->names('skills');
+    Route::resource('project-videos', \App\Http\Controllers\Admin\ProjectVideoController::class);
+    Route::resource('project-technology', ProjectTechnologyController::class);
 
     Route::get('/services',             [servicesController::class, 'index'])->name('admin.services.index');
 });
-
