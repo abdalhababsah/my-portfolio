@@ -10,20 +10,19 @@
                             <div class="resume-info round50 d-flex flex-column position-relative w-100">
                                 <div class="user-img round40 overflow-hidden position-relative w-100">
                                     <img class="img-fluid w-100"
-                                        src="{{ asset('frontend/assets/images/resources/user-img.png') }}" alt="User Image"
+                                        src="{{ asset('frontend/assets/images/resources/user-img.png') }}" alt="{{ __('User Image') }}"
                                         loading="lazy">
                                 </div>
                                 <div class="user-info d-flex flex-column align-items-start w-100">
                                     <a href="mailto:{{ $settings['contact_email'] ?? 'email@example.com' }}"
                                         title="">{{ $settings['contact_email'] ?? 'email@example.com' }}</a>
-                                    <span>{{ $settings['base_location'] ?? 'Jordan' }}</span>
+                                    <span>{{ $settings['base_location'] ?? __('Jordan') }}</span>
                                     <p class="mb-0">&copy; {{ date('Y') }} <a href="{{ url('/') }}"
-                                            title="">{{ $settings['site_title'] ?? 'Portfolio' }}</a>. All Rights
-                                        Reserved</p>
+                                            title="">{{ $settings['site_title'] ?? __('Portfolio') }}</a>. {{ __('All Rights Reserved') }}</p>
                                 </div>
                                 <div
                                     class="user-social-wrap d-flex align-items-center justify-content-between position-relative w-100">
-                                    <span>Follow Me:</span>
+                                    <span>{{ __('Follow Me:') }}</span>
                                     <div class="social-links d-flex align-items-center gap-1">
                                         @foreach ($socialLinks as $social)
                                             <a href="{{ $social->url }}" title="{{ $social->platform }}" target="_blank"><i
@@ -44,21 +43,19 @@
                                 <div class="position-relative w-100">
                                     <div class="intro-wrapper d-flex flex-column align-items-start position-relative w-100">
                                         <div class="intro-box d-flex flex-column align-items-start position-relative w-100">
-                                            <span class="sec-sub rounded-pill text-center">Introduction</span>
-                                            <h2 class="mb-0 fw-normal sz-55">Hey! I am
-                                                <span>{{ $settings['site_title'] ?? 'Your Name' }}</span>, Full‑Stack
-                                                Developer</h2>
+                                            <span class="sec-sub rounded-pill text-center">{{ __('Introduction') }}</span>
+                                            <h2 class="mb-0 fw-normal sz-55">{{ __('Hey! I am') }}
+                                                <span>{{ $settings['site_title'] ?? __('Your Name') }}</span>, {{ __('Full-Stack Developer') }}</h2>
                                             <p class="mb-0">
-                                                {{ $settings['hero_tagline'] ?? 'I build scalable web & mobile experiences.' }}
+                                                {{ $settings['hero_tagline'] ?? __('I build scalable web & mobile experiences.') }}
                                             </p>
                                             <div class="intro-btns d-flex align-items-center w-100">
                                                 <a class="theme-btn position-relative overflow-hidden round10"
-                                                    href="#contact" title=""><i class="far fa-envelope"></i>Hire Me
-                                                    Now</a>
+                                                    href="#contact" title=""><i class="far fa-envelope"></i>{{ __('Hire Me Now') }}
+                                                </a>
                                                 @if (isset($settings['cv_url']))
                                                     <a class="simple-link" href="{{ $settings['cv_url'] }}" title=""
-                                                        download><i class="fas fa-arrow-alt-to-bottom round5"></i>Download
-                                                        CV</a>
+                                                        download><i class="fas fa-arrow-alt-to-bottom round5"></i>{{ __('Download CV') }}</a>
                                                 @endif
                                             </div>
                                         </div>
@@ -68,7 +65,7 @@
                                                     data-wow-delay=".2s">
                                                     <div
                                                         class="fun-fact-box d-flex flex-column align-items-start position-relative w-100">
-                                                        <span>Born In</span>
+                                                        <span>{{ __('Born In') }}</span>
                                                         <h3 class="mb-0 fw-normal sz-30">Locust, USA</h3>
                                                     </div><!-- Fun Fact Box -->
                                                 </div>
@@ -76,15 +73,15 @@
                                                     data-wow-delay=".4s">
                                                     <div
                                                         class="fun-fact-box d-flex flex-column align-items-start position-relative w-100">
-                                                        <span>Experience</span>
-                                                        <h3 class="mb-0 fw-normal sz-30">5+ Years</h3>
+                                                        <span>{{ __('Experience') }}</span>
+                                                        <h3 class="mb-0 fw-normal sz-30">5+ {{ __('Years') }}</h3>
                                                     </div><!-- Fun Fact Box -->
                                                 </div>
                                                 <div class="col-md-6 col-sm-6 col-lg-3 wow fadeIn" data-wow-duration="1s"
                                                     data-wow-delay=".6s">
                                                     <div
                                                         class="fun-fact-box d-flex flex-column align-items-start position-relative w-100">
-                                                        <span>Worldwide Client</span>
+                                                        <span>{{ __('Worldwide Client') }}</span>
                                                         <h3 class="mb-0 fw-normal sz-30">1.3k</h3>
                                                     </div><!-- Fun Fact Box -->
                                                 </div>
@@ -92,7 +89,7 @@
                                                     data-wow-delay=".8s">
                                                     <div
                                                         class="fun-fact-box d-flex flex-column align-items-start position-relative w-100">
-                                                        <span>Job Done Successfully</span>
+                                                        <span>{{ __('Job Done Successfully') }}</span>
                                                         <h3 class="mb-0 fw-normal sz-30">4.9k</h3>
                                                     </div><!-- Fun Fact Box -->
                                                 </div>
@@ -108,14 +105,14 @@
                                             <div class="sec-title-wrap mb-50 d-flex flex-column align-items-start position-relative w-100 wow fadeInUp"
                                                 data-wow-duration=".5s" data-wow-delay=".2s">
                                                 <div class="sec-title d-flex flex-column align-items-start w-100">
-                                                    <span class="sec-sub rounded-pill text-center">About Me</span>
-                                                    <h2 class="mb-0 sz-40">I Have Rich Experience In Web Site Design
+                                                    <span class="sec-sub rounded-pill text-center">{{ __('About Me') }}</span>
+                                                    <h2 class="mb-0 sz-40">{{ __('I Have Rich Experience In Web Site Design') }}
                                                     </h2>
                                                 </div><!-- Sec Title -->
                                                 <a class="simple-link wow fadeInUp" data-wow-duration=".5s"
                                                     data-wow-delay=".4s" href="javascript:void(0);" title=""><i
-                                                        class="fas fa-arrow-alt-to-bottom round5"></i>Download
-                                                    CV</a>
+                                                        class="fas fa-arrow-alt-to-bottom round5"></i>{{ __('Download CV') }}
+                                                </a>
                                             </div><!-- Sec Title Wrap -->
                                         </div>
                                         <div class="col-md-12 col-sm-12 col-lg-7">
@@ -123,60 +120,64 @@
                                                 <div class="about-img round15 overflow-hidden position-relative w-100 wow fadeIn"
                                                     data-wow-duration="1s" data-wow-delay=".5s">
                                                     <img class="img-fluid w-100" src="assets/images/resources/about-img.jpg"
-                                                        alt="About Image" loading="lazy">
+                                                        alt="{{ __('About Image') }}" loading="lazy">
                                                     <a class="position-absolute sz-60"
                                                         href="https://www.youtube.com/embed/peiPQzRIxpI?si=anW1E2xiT9J98Xb5"
                                                         data-fancybox title=""><i class="fas fa-play-circle"></i></a>
                                                 </div><!-- About Image -->
-                                                <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                    elit.
-                                                    In nisi, augue urna, mauris elementum ligula semper enim.
-                                                    Tristique sed sit facilisis ultrices rhoncus eget ullamcorper
-                                                    tellus. Itaque earum rerum hic tenetur a sapiente
-                                                    delectus, ut aut reiciendi.</p>
-                                                <p class="mb-0">Srepellat volup tatibus maiores aliasta consequatur
-                                                    auto
-                                                    perferendis repellat quia voluptas sit upto aspernatur te natus
-                                                    accusan.</p>
+                                                <p class="mb-0">{{ __('Lorem ipsum dolor sit amet, consectetur adipiscing elit. In nisi, augue urna, mauris elementum ligula semper enim. Tristique sed sit facilisis ultrices rhoncus eget ullamcorper tellus. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendi.') }}</p>
+                                                <p class="mb-0">{{ __('Srepellat volup tatibus maiores aliasta consequatur auto perferendis repellat quia voluptas sit upto aspernatur te natus accusan.') }}</p>
                                             </div><!-- About Cap -->
                                         </div>
                                     </div>
                                 </div>
                             </section>
-
-                            {{-- ************ SERVICES ************ --}}
-                            <section id="services">
-                                <div class="position-relative pt-100 w-100">
-                                    <div
-                                        class="sec-title-wrap mb-50 d-flex flex-column align-items-center text-center w-100">
-                                        <div class="sec-title d-flex flex-column align-items-center w-100">
-                                            <span class="sec-sub rounded-pill text-center">Services</span>
-                                            <h2 class="mb-0 sz-40">My Specializations</h2>
+                            <section id="projects">
+                                <div class="position-relative pt-110 w-100">
+                                    <div class="sec-title-wrap mb-50 text-center">
+                                        <div class="sec-title">
+                                            <span class="sec-sub rounded-pill text-center">{{ __('Projects') }}</span>
+                                            <h2 class="mt-4 sz-40">{{ __('My Recent Projects') }}</h2>
                                         </div>
                                     </div>
-                                    <div class="serv-boxes position-relative w-100">
-                                        <div class="row mrg40">
-                                            @forelse($services as $index=>$service)
-                                                <div class="col-md-6 col-sm-6 col-lg-4">
-                                                    <div
-                                                        class="serv-box round15 d-flex flex-column position-relative w-100 h-100">
-                                                        <a class="serv-read rounded-circle" href=""
-                                                            title=""><i class="far fa-long-arrow-right"></i></a>
-                                                        <h3 class="mb-0 fw-normal sz-30"><a href=""
-                                                                title="">{!! nl2br(e($service->title_en)) !!}</a></h3>
-                                                        <p class="mb-0">{{ Str::limit($service->description_en, 60) }}
-                                                        </p>
-                                                        <span>{{ number_format($service->price, 2) }}
-                                                            {{ $service->currency }}</span>
+                                    <div class="port-wrap position-relative w-100">
+                                        <div class="row g-4">
+                                            @foreach ($projects as $project)
+                                                <div class="col-lg-4 col-md-6">
+                                                    <div class="port-box d-flex flex-column align-items-start w-100">
+                                                        <div
+                                                            class="port-img round15 overflow-hidden position-relative w-100">
+                                                            {{-- @if ($project->images->isNotEmpty())
+                                                                <a href="{{ asset($project->images->first()->image_path) }}" title="{{ $project->images->first()->alt_text_en }}">
+                                                                    <img class="img-fluid w-100" src="{{ asset($project->images->first()->image_path) }}" alt="{{ $project->images->first()->alt_text_en }}" loading="lazy">
+                                                                </a>
+                                                            @else --}}
+                                                                <a href="javascript:void(0);">
+                                                                    <img class="img-fluid w-100" src="{{ asset('frontend/assets/images/resources/user-img.png') }}" alt="{{ __('Placeholder Image') }}" loading="lazy">
+                                                                </a>
+                                                            {{-- @endif --}}
+                                                            <div
+                                                                class="port-cat d-flex align-items-center position-absolute">
+                                                                @foreach ($project->technologies as $tech)
+                                                                    <a href="javascript:void(0);" title=""></a>
+                                                                @endforeach
+                                                            </div>
+                                                        </div>
+                                                        <div class="port-info d-flex flex-column align-items-start w-100">
+                                                            <a class="port-read rounded-circle" href="{{ route('projects.show', $project->slug) }}"><i
+                                                                    class="far fa-long-arrow-right"></i></a>
+                                                            <h4 class="mb-0 fw-normal sz-26"><a href=""
+                                                                    title="">{{ $project->title_en }}</a></h4>
+                                                            <span>{{ $project->category?->name_en }}</span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            @empty
-                                                <p>No services added yet.</p>
-                                            @endforelse
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>
                             </section>
+                         
 
                             {{-- ************ SKILLS ************ --}}
                             <section id="skills">
@@ -184,8 +185,8 @@
                                     <div
                                         class="sec-title-wrap mb-50 d-flex flex-column align-items-center text-center w-100">
                                         <div class="sec-title d-flex flex-column align-items-center w-100">
-                                            <span class="sec-sub rounded-pill text-center">My Skills</span>
-                                            <h2 class="mb-0 sz-40">My Advantages</h2>
+                                            <span class="sec-sub rounded-pill text-center">{{ __('My Skills') }}</span>
+                                            <h2 class="mb-0 sz-40">{{ __('My Advantages') }}</h2>
                                         </div>
                                     </div>
                                     <div class="skill-boxes position-relative w-100">
@@ -222,8 +223,8 @@
                                             <div class="col-lg-6">
                                                 <div class="sec-title-wrap mb-50">
                                                     <div class="sec-title">
-                                                        <span class="sec-sub rounded-pill text-center">Knowledge</span>
-                                                        <h2 class="mt-4 sz-40">My Education</h2>
+                                                        <span class="sec-sub rounded-pill text-center">{{ __('Knowledge') }}</span>
+                                                        <h2 class="mt-4 sz-40">{{ __('My Education') }}</h2>
                                                     </div>
                                                 </div>
                                                 <div class="edu-boxes d-flex flex-column w-100">
@@ -233,7 +234,7 @@
                                                             <h4 class="mb-0 fw-normal sz-24">{{ $edu->degree_en }}</h4>
                                                             <p class="mb-0">{{ $edu->institution_en }}</p>
                                                             <span>{{ $edu->start_date->format('Y') }} -
-                                                                {{ $edu->end_date ? $edu->end_date->format('Y') : 'Present' }}</span>
+                                                                {{ $edu->end_date ? $edu->end_date->format('Y') : __('Present') }}</span>
                                                         </div>
                                                     @endforeach
                                                 </div>
@@ -242,8 +243,8 @@
                                             <div class="col-lg-6">
                                                 <div class="sec-title-wrap mb-50">
                                                     <div class="sec-title">
-                                                        <span class="sec-sub rounded-pill text-center">Resume</span>
-                                                        <h2 style="margin-top: 26px;" class="mt-4 sz-40">My Experience
+                                                        <span class="sec-sub rounded-pill text-center">{{ __('Resume') }}</span>
+                                                        <h2 style="margin-top: 26px;" class="mt-4 sz-40">{{ __('My Experience') }}
                                                         </h2>
                                                     </div>
                                                 </div>
@@ -255,7 +256,7 @@
                                                                 {{ $exp->position_en }}</h4>
                                                             <p class="mb-0">{{ $exp->company_en }}</p>
                                                             <span>{{ $exp->start_date->format('Y') }} -
-                                                                {{ $exp->end_date ? $exp->end_date->format('Y') : 'Present' }}</span>
+                                                                {{ $exp->end_date ? $exp->end_date->format('Y') : __('Present') }}</span>
                                                         </div>
                                                     @endforeach
                                                 </div>
@@ -265,89 +266,40 @@
                                 </div>
                             </section>
 
-                            {{-- ************ PORTFOLIO ************ --}}
-                            <section id="portfolio">
-                                <div class="position-relative pt-110 w-100">
-                                    <div class="sec-title-wrap mb-50 text-center">
-                                        <div class="sec-title">
-                                            <span class="sec-sub rounded-pill text-center">Portfolio</span>
-                                            <h2 class="mt-4 sz-40">My Recent Projects</h2>
+                             {{-- ************ SERVICES ************ --}}
+                             <section id="services">
+                                <div class="position-relative pt-100 w-100">
+                                    <div
+                                        class="sec-title-wrap mb-50 d-flex flex-column align-items-center text-center w-100">
+                                        <div class="sec-title d-flex flex-column align-items-center w-100">
+                                            <span class="sec-sub rounded-pill text-center">{{ __('Services') }}</span>
+                                            <h2 class="mb-0 sz-40">{{ __('My Specializations') }}</h2>
                                         </div>
                                     </div>
-                                    <div class="port-wrap position-relative w-100">
-                                        <div class="row g-4">
-                                            @foreach ($projects as $project)
-                                                <div class="col-lg-4 col-md-6">
-                                                    <div class="port-box d-flex flex-column align-items-start w-100">
-                                                        <div
-                                                            class="port-img round15 overflow-hidden position-relative w-100">
-                                                            <a href="">
-                                                                <img class="img-fluid w-100" src=""
-                                                                    loading="lazy">
-                                                            </a>
-                                                            <div
-                                                                class="port-cat d-flex align-items-center position-absolute">
-                                                                @foreach ($project->technologies as $tech)
-                                                                    <a href="javascript:void(0);" title=""></a>
-                                                                @endforeach
-                                                            </div>
-                                                        </div>
-                                                        <div class="port-info d-flex flex-column align-items-start w-100">
-                                                            <a class="port-read rounded-circle" href=""><i
-                                                                    class="far fa-long-arrow-right"></i></a>
-                                                            <h4 class="mb-0 fw-normal sz-26"><a href=""
-                                                                    title="">{{ $project->title_en }}</a></h4>
-                                                            <span>{{ $project->category?->name_en }}</span>
-                                                        </div>
+                                    <div class="serv-boxes position-relative w-100">
+                                        <div class="row mrg40">
+                                            @forelse($services as $index=>$service)
+                                                <div class="col-md-6 col-sm-6 col-lg-4">
+                                                    <div
+                                                        class="serv-box round15 d-flex flex-column position-relative w-100 h-100">
+                                                        <a class="serv-read rounded-circle" href="{{ route('services.show', $service->slug) }}"
+                                                            title=""><i class="far fa-long-arrow-right"></i></a>
+                                                        <h3 class="mb-0 fw-normal sz-30"><a href=""
+                                                                title="">{!! nl2br(e($service->title_en)) !!}</a></h3>
+                                                        <p class="mb-0">{{ Str::limit($service->description_en, 60) }}
+                                                        </p>
+                                                        <span>{{ number_format($service->price, 2) }}
+                                                            {{ $service->currency }}</span>
                                                     </div>
                                                 </div>
-                                            @endforeach
+                                            @empty
+                                                <p>{{ __('No services added yet.') }}</p>
+                                            @endforelse
                                         </div>
                                     </div>
                                 </div>
                             </section>
-
-                            {{-- ************ TESTIMONIALS ************ --}}
-                            <section id="testimonials">
-                                <div class="position-relative pt-110 w-100">
-                                    <div class="row">
-                                        <div class="col-lg-5">
-                                            <div class="sec-title-wrap mb-20">
-                                                <div class="sec-title">
-                                                    <span class="sec-sub rounded-pill text-center">Testimonial</span>
-                                                    <h2 class="mt-4 sz-40">Trusted By Clients</h2>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-7">
-                                            <div class="testi-wrap position-relative w-100">
-                                                <div class="swiper-wrapper">
-                                                    @foreach ($testimonials as $t)
-                                                        <div
-                                                            class="testi-item swiper-slide d-block position-relative w-100">
-                                                            <div
-                                                                class="testi-box round15 d-flex position-relative w-100 p-4">
-                                                                <p class="mb-3">{{ $t->message_en }}</p>
-                                                                <div class="testi-info d-flex align-items-center">
-                                                                    <img class="img-fluid rounded-circle me-3"
-                                                                        src="{{ asset($t->image ?? 'frontend/assets/images/placeholder.png') }}"
-                                                                        alt="{{ $t->name }}" loading="lazy">
-                                                                    <div
-                                                                        class="testi-info-inner d-flex flex-column align-items-start">
-                                                                        <h4 class="mb-0 fw-semibold sz-22">
-                                                                            {{ $t->name }}</h4>
-                                                                        <span>{{ $t->role }}</span>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    @endforeach
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
+                          
 
                             {{-- ************ BLOGS ************ --}}
                             <section id="blogs">
@@ -356,13 +308,13 @@
                                         <div class="col-lg-5">
                                             <div class="sec-title-wrap mb-20">
                                                 <div class="sec-title">
-                                                    <span class="sec-sub rounded-pill text-center">My Blogs</span>
-                                                    <h2 class="mt-4 sz-40">Recent Blogs & Articles</h2>
+                                                    <span class="sec-sub rounded-pill text-center">{{ __('My Blogs') }}</span>
+                                                    <h2 class="mt-4 sz-40">{{ __('Recent Blogs & Articles') }}</h2>
                                                 </div>
                                             </div>
                                             <div class="view-all mb-50">
-                                                <p class="mb-0">Want to see my recent activities? Click here to <a
-                                                        href="" title="">View More Posts</a></p>
+                                                <p class="mb-0">{{ __('Want to see my recent activities? Click here to') }} <a
+                                                        href="" title="">{{ __('View More Posts') }}</a></p>
                                             </div>
                                         </div>
                                         <div class="col-lg-7">
@@ -405,17 +357,16 @@
                                             <div class="col-lg-5">
                                                 <div class="sec-title-wrap mb-40">
                                                     <div class="sec-title">
-                                                        <span class="sec-sub rounded-pill text-center">Want to Hire
-                                                            Me?</span>
-                                                        <h2 class="mt-4 sz-40">Let's Work Together On Project</h2>
+                                                        <span class="sec-sub rounded-pill text-center">{{ __('Want to Hire Me?') }}</span>
+                                                        <h2 class="mt-4 sz-40">{{ __('Let\'s Work Together On Project') }}</h2>
                                                     </div>
                                                 </div>
                                                 <div class="cont-info mb-40 d-inline-flex align-items-center gap-2">
                                                     <span><i class="fas fa-phone"></i></span>
                                                     <div class="cont-info-inner d-flex align-items-start flex-column">
-                                                        <span>Contact Me At:</span>
+                                                        <span>{{ __('Contact Me At:') }}</span>
                                                         <a href="tel:{{ $settings['phone'] ?? '' }}"
-                                                            title="Call Us">{{ $settings['phone'] ?? '(000) 000-0000' }}</a>
+                                                            title="{{ __('Call Us') }}">{{ $settings['phone'] ?? '(000) 000-0000' }}</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -427,27 +378,27 @@
                                                     <div class="row g-3">
                                                         <div class="col-md-12">
                                                             <input class="form-control" type="text" name="name"
-                                                                placeholder="Full Name *" required>
+                                                                placeholder="{{ __('Full Name *') }}" required>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <input class="form-control" type="email" name="email"
-                                                                placeholder="Email *" required>
+                                                                placeholder="{{ __('Email *') }}" required>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <input class="form-control" type="tel" name="phone"
-                                                                placeholder="Phone (optional)">
+                                                                placeholder="{{ __('Phone (optional)') }}">
                                                         </div>
                                                         <div class="col-md-12">
                                                             <input class="form-control" type="text" name="subject"
-                                                                placeholder="Your Subject *" required>
+                                                                placeholder="{{ __('Your Subject *') }}" required>
                                                         </div>
                                                         <div class="col-md-12">
-                                                            <textarea class="form-control" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+                                                            <textarea class="form-control" name="message" rows="5" placeholder="{{ __('Write your message here...') }}" required></textarea>
                                                         </div>
                                                         <div class="col-md-12">
                                                             <button
                                                                 class="theme-btn2 round10 d-flex align-items-center justify-content-center position-relative overflow-hidden"
-                                                                type="submit">Send Message</button>
+                                                                type="submit">{{ __('Send Message') }}</button>
                                                         </div>
                                                     </div>
                                                 </form>

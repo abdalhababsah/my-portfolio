@@ -3,11 +3,14 @@
 use App\Http\Controllers\Frontend\ProjectController;
 use App\Http\Controllers\Admin\ProjectsController;
 use App\Http\Controllers\Admin\servicesController;
+use App\Http\Controllers\Frontend\ServiceController AS UserServicesController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\RoutingController;
 use Illuminate\Support\Facades\Route;
 
 require __DIR__ . '/auth.php';
+Route::get('/lang/{locale}', [LocalizationController::class, 'switchLang'])->name('locale.switch');
 
 Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
     // Route::get('', [RoutingController::class, 'index'])->name('root');
@@ -21,11 +24,12 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
 Route::get('/',               [HomeController::class, 'index'])->name('home');
 Route::get('/blog',           [HomeController::class, 'blog'])->name('blog');
 Route::get('/blog-detail',    [HomeController::class, 'blogDetail'])->name('blog.detail');
-Route::get('/services',       [HomeController::class, 'services'])->name('services.index');
+Route::get('/services',       [UserServicesController::class, 'index'])->name('services.index');
+Route::get('/services',       [UserServicesController::class, 'index'])->name('services.index');
+Route::get('/services/{slug}', [UserServicesController::class, 'show'])->name('services.show');
 Route::get('/service-detail', [HomeController::class, 'serviceDetail'])->name('service.detail');
 Route::get('/projects',           [ProjectController::class, 'index'])->name('projects.index');
 Route::get('/projects/{slug}',    [ProjectController::class, 'show'])->name('projects.show');
-Route::get('/hire-me',        [HomeController::class, 'hireMe'])->name('hire.me');
 
 
 

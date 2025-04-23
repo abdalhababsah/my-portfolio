@@ -107,28 +107,57 @@
     }
 
     if (width < 1199) {
-      //===== Responsive Menu =====//
+      // Open menu
       $(".res-menu-btn").on("click", function () {
-        $("nav > ul").addClass("slidein");
-        $(".res-menu-close").addClass("d-inline-flex");
-        return false;
+          $("nav > ul").addClass("slidein");
+          $(".res-menu-close").addClass("d-inline-flex");
+          return false;
       });
+  
+      // Prevent propagation inside menu
       $("nav > ul").on("click", function (e) {
-        e.preventDefault();
+          e.stopPropagation();
       });
-      $("html, body").on("click", function () {
-        $("nav > ul").removeClass("slidein");
-        $(".res-menu-close").removeClass("d-inline-flex");
+  
+      // Close menu when clicking outside
+      $("html, body").on("click", function (e) {
+          if (!$(e.target).closest("nav > ul").length && !$(e.target).closest(".res-menu-btn").length) {
+              $("nav > ul").removeClass("slidein");
+              $(".res-menu-close").removeClass("d-inline-flex");
+          }
       });
+  
+      // Close menu when any item is clicked
+      $("nav > ul > li > a").on("click", function () {
+          $("nav > ul").removeClass("slidein");
+          $(".res-menu-close").removeClass("d-inline-flex");
+      });
+  
+      // Dropdown toggle
       $("nav li.menu-item-has-children > a > i").on("click", function () {
-        $(this).parent().parent().siblings("li").children("ul").slideUp();
-        $(this).parent().parent().siblings("li").removeClass("active");
-        $(this).parent().parent().children("ul").slideToggle();
-        $(this).parent().parent().toggleClass("active");
-        return false;
+          $(this).parent().parent().siblings("li").children("ul").slideUp();
+          $(this).parent().parent().siblings("li").removeClass("active");
+          $(this).parent().parent().children("ul").slideToggle();
+          $(this).parent().parent().toggleClass("active");
+          return false;
       });
-    }
+  }
 
+//   $(document).ready(function() {
+//     // Check on page load
+//     if ($(window).scrollTop() === 0) {
+//         $('#stickyHeader').addClass('at-top');
+//     }
+    
+//     // Handle scroll event
+//     $(window).scroll(function() {
+//         if ($(this).scrollTop() > 50) {
+//             $('#stickyHeader').removeClass('at-top').addClass('scrolled');
+//         } else {
+//             $('#stickyHeader').addClass('at-top').removeClass('scrolled');
+//         }
+//     });
+// });
     //===== LightBox =====//
     if ($.isFunction($.fn.fancybox)) {
       $('[data-fancybox],[data-fancybox="gallery"]').fancybox({});

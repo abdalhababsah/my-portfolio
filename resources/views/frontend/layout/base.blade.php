@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}" dir="{{ app()->getLocale() === 'ar' ? 'rtl' : 'ltr' }}">
 
 <head>
     <meta charset="UTF-8">
@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/swiper-bundle.min.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/responsive.css') }}">
+
+    @if(app()->getLocale() == 'ar')
+        <link rel="stylesheet" href="{{ asset('frontend/assets/css/style-rtl.css') }}">
+    @endif
 </head>
 
 <body class="bg-color12 bg-blend-luminosity dark-layer2 opc9 bg-att-fixed scheme1 dark"
@@ -32,7 +36,7 @@
                     <div class='cube-face cube-face-bottom'>I</div>
                     <div class='cube-face cube-face-top'>C</div>
                 </div>
-                <span class="cube-face">Iconicwebs</span>
+                <span class="cube-face">ALHABABSAH</span>
             </div>
         </div><!-- Page Loader -->
         @include('frontend.layout.header')
@@ -51,6 +55,8 @@
     <script src="{{ asset('frontend/assets/js/ResizeSensor.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/theia-sticky-sidebar.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/scripts.js') }}"></script>
+
+    @stack('scripts')
 </body>
 
 </html>

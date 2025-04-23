@@ -60,8 +60,8 @@
 
 /*===== General Variables =====*/
 :root {
-  --scheme1: #28ec8d;
-  --scheme2: #6344c6;
+  --scheme1: #C19A6B	;
+  --scheme2: #C19A6B;
   --scheme3: #ff7300;
   --scheme4: #a0ce4e;
   --scheme5: #f64243;
@@ -2586,6 +2586,36 @@ body.light {
 }
 
 /*===== Header Style =====*/
+/* Sticky Header */
+header.stick {
+  position: absolute;
+  transition: background-color 0.3s ease, padding 0.3s ease;
+}
+
+/* Transparent header at top */
+header.stick.at-top {
+  background-color: transparent;
+}
+
+/* Dark background when scrolled */
+header.stick.scrolled {
+  position: fixed;
+  background-color: var(--color5);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  padding-top: 36px;
+  padding-bottom: 10px;
+}
+
+/* Adjust logo-menu-wrapper padding when scrolled */
+header.stick.scrolled .logo-menu-wrapper {
+  padding-top: 0.625rem;
+}
+
+/* Maintain content position when header becomes fixed */
+header.stick.scrolled + .content-offset {
+  padding-top: 100px; /* Adjust based on your header height */
+}
+
 header {
   position: relative;
   left: 0;
@@ -2727,6 +2757,33 @@ nav ul li.active > a:before {
   right: 10px;
   z-index: 9999999;
 }
+/* Language Switcher */
+.lang-switcher .lang-btn {
+  font-family: var(--Bricolage-Grotesque);
+  color: var(--white);
+  font-size: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border-radius: 0 0 var(--round10) var(--round10);
+  padding: 0.9375rem 1.875rem;
+  background-color: var(--scheme2);
+  transition: var(--transition);
+}
+
+.lang-switcher .lang-btn i {
+  font-size: 1.25rem;
+}
+
+.lang-switcher .lang-btn:hover,
+.lang-switcher .lang-btn:focus {
+  background-color: var(--color5);
+}
+
+/* For RTL support */
+html[dir="rtl"] .lang-switcher .lang-btn i {
+  transform: scaleX(-1);
+}
 
 /*===== Sidepanel =====*/
 .sidepanel {
@@ -2814,7 +2871,94 @@ nav ul li.active > a:before {
   border-radius: var(--round3);
   padding: 3px 0.9375rem;
 }
+/* Sidebar Navigation */
+.sidepanel-nav li {
+  margin-bottom: 10px;
+}
 
+.sidepanel-nav li:last-child {
+  margin-bottom: 0;
+}
+
+.sidepanel-nav li a {
+  color: var(--white);
+  font-family: var(--Bricolage-Grotesque);
+  font-size: 1rem;
+  font-weight: 500;
+  display: block;
+  padding: 5px 0;
+  transition: var(--transition);
+}
+
+.sidepanel-nav li a:hover,
+.sidepanel-nav li a:focus {
+  color: var(--scheme1);
+  padding-left: 5px;
+}
+
+/* Language switcher in sidebar */
+.lang-switch .skin-mode {
+  display: flex;
+  background-color: var(--color2);
+  color: var(--white);
+  font-size: 0.9375rem;
+  border-radius: var(--round3);
+  padding: 8px 0.9375rem;
+  font-family: var(--Bricolage-Grotesque);
+  transition: var(--transition);
+}
+
+.lang-switch .skin-mode:hover,
+.lang-switch .skin-mode:focus,
+.lang-switch .skin-mode.active {
+  background-color: var(--scheme1);
+}
+
+/* Contact in sidebar */
+.side-contact a {
+  color: var(--white);
+  font-family: var(--Bricolage-Grotesque);
+  font-size: 0.9375rem;
+  transition: var(--transition);
+}
+
+.side-contact a:hover,
+.side-contact a:focus {
+  color: var(--scheme1);
+}
+
+.side-contact a i {
+  width: 20px;
+  text-align: center;
+}
+
+/* RTL Support */
+html[dir="rtl"] .sidepanel {
+  left: auto;
+  right: -16.875rem;
+}
+
+html[dir="rtl"] .sidepanel.show {
+  left: auto;
+  right: 0;
+}
+
+html[dir="rtl"] .sidepanel > span {
+  right: auto;
+  left: -3.125rem;
+  border-radius: var(--round5) 0 0 var(--round5);
+}
+
+html[dir="rtl"] .sidepanel-box > h6::before {
+  left: auto;
+  right: 0;
+}
+
+html[dir="rtl"] .sidepanel-nav li a:hover,
+html[dir="rtl"] .sidepanel-nav li a:focus {
+  padding-left: 0;
+  padding-right: 5px;
+}
 /*===== Resume Style =====*/
 .resume-wrapper {
   gap: 8.125rem;
@@ -2920,6 +3064,9 @@ nav ul li.active > a:before {
   max-width: calc(100% - 34.0625rem);
 }
 
+
+
+
 /*===== Intro Box Style =====*/
 .intro-box {
   max-width: 70%;
@@ -2949,46 +3096,106 @@ nav ul li.active > a:before {
   gap: 1.875rem;
 }
 
-/*===== Theme Btns Style =====*/
-.theme-btn {
+/*===== Unified Theme Buttons Style =====*/
+
+/* Base styles for all theme buttons */
+.theme-btn,
+.theme-btn3 {
   display: inline-flex;
   align-items: center;
   color: var(--white);
-  font-size: 1rem;
   text-transform: uppercase;
   font-family: var(--Bricolage-Grotesque);
-  font-weight: 900;
-  gap: 10px;
+  font-weight: 800;
   padding: 1.0625rem 2.1875rem;
+  position: relative;
+  overflow: hidden;
   z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
 }
+
+/* Icon styles for all buttons */
+.theme-btn i,
+.theme-btn3 i,
+.simple-link i {
+  transition: transform 0.3s ease;
+}
+
+/* Hover effect for icons */
+.theme-btn:hover i,
+.theme-btn3:hover i,
+.simple-link:hover i {
+  transform: translateX(4px);
+}
+
+/* Unified shine effect for all buttons */
+.theme-btn:before,
+.theme-btn3:before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  transform: rotate(30deg);
+  z-index: -1;
+  transition: transform 0.7s ease;
+}
+
+/* Unified hover transform */
+.theme-btn:hover,
+.theme-btn3:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* Unified shine effect on hover */
+.theme-btn:hover:before,
+.theme-btn3:hover:before {
+  transform: rotate(30deg) translate(10%, 10%);
+}
+
+/* Background overlay for all buttons */
+.theme-btn:after,
+.theme-btn3:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Original theme-btn specific styles */
+.theme-btn {
+  font-size: 1rem;
+  gap: 10px;
+}
+
 .theme-btn i {
   font-size: 1.25rem;
 }
-.theme-btn:before,
-.theme-btn:after {
-  content: "";
-  width: 0;
-  background-color: var(--color5);
-  top: 0;
-  bottom: 0;
-  z-index: -1;
-  opacity: 0;
-  position: absolute;
+
+/* theme-btn3 specific styles */
+.theme-btn3 {
+  font-size: 0.95rem;
+  gap: 8px;
+  border-radius: var(--round5);
 }
-.theme-btn:before {
-  left: 0;
+
+.theme-btn3 i {
+  font-size: 1.125rem;
 }
-.theme-btn:after {
-  right: 0;
-}
-.theme-btn:hover:before,
-.theme-btn:hover:after,
-.theme-btn:focus:before,
-.theme-btn:focus:after {
-  opacity: 1;
-  width: 100%;
-}
+
+/* Simple link styles */
 .simple-link {
   text-decoration: underline;
   font-family: var(--Bricolage-Grotesque);
@@ -2997,7 +3204,11 @@ nav ul li.active > a:before {
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
 }
+
 .simple-link i {
   height: 1.75rem;
   width: 1.75rem;
@@ -3007,6 +3218,59 @@ nav ul li.active > a:before {
   justify-content: center;
 }
 
+/* Button variants */
+/* Original theme-btn background */
+.theme-btn:after {
+  background-color: var(--color5);
+}
+
+/* GitHub button */
+.theme-btn3.github-btn {
+  background-color: var(--color5);
+  color: var(--white);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.theme-btn3.github-btn:after {
+  background-color: var(--color5);
+}
+
+.theme-btn3.github-btn:hover {
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.25);
+}
+
+/* Demo button */
+.theme-btn3.demo-btn {
+  background-color: var(--scheme2);
+  color: var(--white);
+  box-shadow: 0 4px 8px rgba(99, 68, 198, 0.2);
+}
+
+.theme-btn3.demo-btn:after {
+  background-color: var(--scheme2);
+}
+
+.theme-btn3.demo-btn:hover {
+  box-shadow: 0 7px 14px rgba(99, 68, 198, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+  .theme-btn, 
+  .theme-btn3 {
+    padding: 0.875rem 1.75rem;
+    font-size: 0.875rem;
+  }
+  
+  .theme-btn i, 
+  .theme-btn3 i {
+    font-size: 1rem;
+  }
+  
+  .simple-link {
+    font-size: 1rem;
+  }
+}
 /*===== Fun Facts Style =====*/
 .fun-fact-box {
   padding: 1.875rem 2.5rem;
@@ -3052,6 +3316,8 @@ nav ul li.active > a:before {
 }
 .serv-boxes .serv-box {
   margin-bottom: 2.5rem;
+  min-height: 300px;
+  justify-content: space-between;
 }
 .serv-box {
   padding: 1.5625rem 1.5625rem 2.5rem 2.5rem;

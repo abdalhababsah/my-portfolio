@@ -67,8 +67,4 @@ class HomeController extends Controller
         return view('frontend.project-detail');
     }
 
-    public function hireMe()
-    {
-        return view('frontend.hire-me');
-    }
 }
