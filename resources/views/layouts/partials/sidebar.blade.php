@@ -1,4 +1,4 @@
-<div class="app-sidebar">
+{{-- <div class="app-sidebar">
      <!-- Sidebar Logo -->
      <div class="logo-box">
           <a href="{{ route('any', 'index') }}" class="logo-dark">
@@ -356,4 +356,115 @@
      <div class="shooting-star"></div>
      <div class="shooting-star"></div>
      <div class="shooting-star"></div>
+</div> --}}
+
+
+    {{-- ========================== uncomment to see the whole dash =========================== --}}
+
+
+
+<div class="app-sidebar">
+    <!-- Sidebar Logo -->
+    <div class="logo-box">
+         <a href='' class="logo-dark">
+              <img src="/images/logo-sm.png" class="logo-sm" alt="logo sm">
+              <img src="/images/logo-dark.png" class="logo-lg" alt="logo dark">
+         </a>
+
+         <a href="" class="logo-light">
+              <img src="/images/logo-sm.png" class="logo-sm" alt="logo sm">
+              <img src="/images/logo-light.png" class="logo-lg" alt="logo light">
+         </a>
+    </div>
+
+    <div class="scrollbar" data-simplebar>
+
+         <ul class="navbar-nav" id="navbar-nav">
+
+              <li class="menu-title">Menu...</li>
+
+              <li class="nav-item">
+                   <a class="nav-link" href="
+">
+                        <span class="nav-icon">
+                             <iconify-icon icon="mingcute:home-3-line"></iconify-icon>
+                        </span>
+                        <span class="nav-text"> Dashboard </span>
+                        <span class="badge bg-primary badge-pill text-end">03</span>
+                   </a>
+              </li>
+
+              <li class="nav-item">
+                   <a class="nav-link menu-arrow" href="#sidebarAuthentication" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarAuthentication">
+                        <span class="nav-icon">
+                             <iconify-icon icon="mingcute:user-3-line"></iconify-icon>
+                        </span>
+                        <span class="nav-text"> Mangment </span>
+                   </a>
+                   <div class="collapse" id="sidebarAuthentication">
+                        <ul class="nav sub-navbar-nav">
+                             <li class="sub-nav-item">
+                                  <a class="sub-nav-link" href="{{ route('projects.index') }}">Projects</a>
+                             </li>
+                             <li class="sub-nav-item">
+                                  <a class="sub-nav-link" href="{{ route('services.index') }}">Services</a>
+                             </li>
+
+                        </ul>
+                   </div>
+              </li>
+
+              <li class="nav-item">
+                   <a class="nav-link menu-arrow" href="#sidebarError" data-bs-toggle="collapse" role="button"
+                        aria-expanded="false" aria-controls="sidebarError">
+                        <span class="nav-icon">
+                             <iconify-icon icon="mingcute:bug-line"></iconify-icon>
+                        </span>
+                        <span class="nav-text"> Error Pages</span>
+                   </a>
+                   <div class="collapse" id="sidebarError">
+                        <ul class="nav sub-navbar-nav">
+                             <li class="sub-nav-item">
+                                  <a class="sub-nav-link" href="">Pages 404</a>
+                             </li>
+                             <li class="sub-nav-item">
+                                  <a class="sub-nav-link" href="">Pages 404 Alt</a>
+                             </li>
+                        </ul>
+                   </div>
+              </li>
+
+
+
+
+
+
+
+         </ul>
+    </div>
+</div>
+
+
+<div class="animated-stars">
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
 </div>
