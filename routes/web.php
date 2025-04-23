@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\ProjectsController;
+use App\Http\Controllers\Admin\servicesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoutingController;
 use Illuminate\Support\Facades\Route;
@@ -8,9 +10,9 @@ require __DIR__ . '/auth.php';
 
 Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
     // Route::get('', [RoutingController::class, 'index'])->name('root');
-    Route::get('{first}/{second}/{third}', [RoutingController::class, 'thirdLevel'])->name('third');
-    Route::get('{first}/{second}', [RoutingController::class, 'secondLevel'])->name('second');
-    Route::get('{any}', [RoutingController::class, 'root'])->name('any');
+    // Route::get('{first}/{second}/{third}', [RoutingController::class, 'thirdLevel'])->name('third');
+    // Route::get('{first}/{second}', [RoutingController::class, 'secondLevel'])->name('second');
+    // Route::get('{any}', [RoutingController::class, 'root'])->name('any');
 });
 
 
@@ -23,3 +25,10 @@ Route::get('/service-detail', [HomeController::class, 'serviceDetail'])->name('s
 Route::get('/portfolio',      [HomeController::class, 'portfolio'])->name('portfolio');
 Route::get('/portfolio-detail', [HomeController::class, 'portfolioDetail'])->name('portfolio.detail');
 Route::get('/hire-me',        [HomeController::class, 'hireMe'])->name('hire.me');
+Route::get('/projects',        [ProjectsController::class, 'index'])->name('projects.index');
+Route::get('/project/create',        [ProjectsController::class, 'create'])->name('project.create');
+Route::get('/project/edit/{id}',        [ProjectsController::class, 'edit'])->name('project.edit');
+Route::post('/project/store', [ProjectsController::class, 'store'])->name('project.store');
+Route::put('/project/update/{id}', [ProjectsController::class, 'store'])->name('project.update');
+
+Route::get('/services',        [servicesController::class, 'index'])->name('services.index');

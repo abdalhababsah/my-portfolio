@@ -172,7 +172,7 @@
                                         class="align-middle me-2 fs-18"></iconify-icon><span
                                         class="align-middle">Help</span>
                               </a>
-                              <a class="dropdown-item" href="auth-{{ route ('second' , ['auth','lock-screen']) }}">
+                              {{-- <a class="dropdown-item" href="auth-{{ route ('second' , ['auth','lock-screen']) }}"> --}}
                                    <iconify-icon icon="solar:lock-keyhole-outline"
                                         class="align-middle me-2 fs-18"></iconify-icon><span class="align-middle">Lock
                                         screen</span>
@@ -180,7 +180,7 @@
 
                               <div class="dropdown-divider my-1"></div>
 
-                              <a class="dropdown-item text-danger" href="{{ route ('second' , ['auth','signin']) }}">
+                              {{-- <a class="dropdown-item text-danger" href="{{ route ('second' , ['auth','signin']) }}"> --}}
                                    <iconify-icon icon="solar:logout-3-outline"
                                         class="align-middle me-2 fs-18"></iconify-icon><span
                                         class="align-middle">Logout</span>
