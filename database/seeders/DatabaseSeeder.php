@@ -423,7 +423,7 @@ class DatabaseSeeder extends Seeder
          | -----------------------------------------------------------------
          */
         DB::table('site_settings')->insert([
-            ['key_name' => 'site_title', 'value_en' => 'Abdelrahman Portfolio', 'value_ar' => 'محفظة عبدالرحمن'],
+            ['key_name' => 'site_title', 'value_en' => 'Abdelrahman', 'value_ar' => 'عبدالرحمن'],
             ['key_name' => 'hero_heading', 'value_en' => 'Building Digital Experiences', 'value_ar' => 'بناء تجارب رقمية'],
             ['key_name' => 'contact_email', 'value_en' => 'contact@site.com', 'value_ar' => 'contact@site.com'],
         ]);

@@ -33,10 +33,10 @@
                         </li>
 
                         <li class="menu-item-has-children">
-                            <a href="#" title="">Portfolio <i class="far fa-angle-down"></i></a>
+                            <a href="#" title="">Projects <i class="far fa-angle-down"></i></a>
                             <ul>
-                                <li><a href="{{ route('portfolio') }}" title="">Portfolio</a></li>
-                                <li><a href="{{ route('portfolio.detail') }}" title="">Portfolio Detail</a></li>
+                                <li><a href="{{ route('projects.index') }}" title="">Portfolio</a></li>
+                                {{-- <li><a href="{{ route('projects.show') }}" title="">Portfolio Detail</a></li> --}}
                             </ul>
                         </li>
 

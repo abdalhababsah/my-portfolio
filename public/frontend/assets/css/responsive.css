@@ -211,7 +211,7 @@
   }
 }
 
-@media (max-width: 1030px) {
+@media (max-width: 1199px) {
   .cont-links,
   nav ul li a:before {
     display: none !important;

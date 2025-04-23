@@ -106,7 +106,7 @@
       wow.init();
     }
 
-    if (width < 1030) {
+    if (width < 1199) {
       //===== Responsive Menu =====//
       $(".res-menu-btn").on("click", function () {
         $("nav > ul").addClass("slidein");
