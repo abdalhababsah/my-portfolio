@@ -26,6 +26,10 @@ Route::get('/service-detail', [HomeController::class, 'serviceDetail'])->name('s
 Route::get('/projects',           [ProjectController::class, 'index'])->name('projects.index');
 Route::get('/projects/{slug}',    [ProjectController::class, 'show'])->name('projects.show');
 Route::get('/hire-me',        [HomeController::class, 'hireMe'])->name('hire.me');
+
+
+
+
 Route::get('/projects',        [ProjectsController::class, 'index'])->name('projects.index');
 Route::get('/project/create',        [ProjectsController::class, 'create'])->name('project.create');
 Route::get('/project/edit/{id}',        [ProjectsController::class, 'edit'])->name('project.edit');
