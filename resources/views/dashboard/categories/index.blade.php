@@ -1,8 +1,8 @@
-@extends('layouts.vertical', ['subtitle' => 'projects'])
+@extends('layouts.vertical', ['subtitle' => 'Categories'])
 
 @section('content')
 
-@include('layouts.partials.page-title', ['title' => 'Darkone', 'subtitle' => 'projects'])
+@include('layouts.partials/page-title', ['title' => 'Darkone', 'subtitle' => 'Categories'])
 
 <style>
     .table-responsive {
@@ -14,7 +14,7 @@
 <div class="card">
 
     <div class="card-body">
-        <a href="{{ route('projects.create') }}" class="btn btn-primary float-end">Create Project</a>
+        <a href="{{ route('categories.create') }}" class="btn btn-primary float-end">Create Categories</a>
         <div id="table-projects" style="overflow: auto"></div>
 
     </div>
@@ -34,8 +34,8 @@
             columns: @json($columns),
             data: @json($data),
             routes: {
-                edit: "{{ route('projects.edit' , ':id') }}",
-                delete: "{{ route('projects.destroy' , ':id') }}",
+                edit: "{{ route('categories.edit' , ':id') }}",
+                delete: "{{ route('categories.destroy' , ':id') }}",
             }
         }
     ];

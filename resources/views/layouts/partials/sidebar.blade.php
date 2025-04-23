@@ -405,11 +405,33 @@
                    <div class="collapse" id="sidebarAuthentication">
                         <ul class="nav sub-navbar-nav">
                              <li class="sub-nav-item">
-                                  <a class="sub-nav-link" href="{{ route('admin.projects.index') }}">Projects</a>
+                                  <a class="sub-nav-link" href="{{ route('projects.index') }}">Projects</a>
                              </li>
+                             <li class="sub-nav-item">
+                                  <a class="sub-nav-link" href="{{ route('project-videos.index') }}">Project Videos</a>
+                             </li>
+
                              <li class="sub-nav-item">
                                   <a class="sub-nav-link" href="{{ route('admin.services.index') }}">Services</a>
                              </li>
+                             <li class="sub-nav-item">
+                                <a class="sub-nav-link" href="{{ route('faqs.index') }}">FAQs</a>
+                            </li>
+                             <li class="sub-nav-item">
+                                <a class="sub-nav-link" href="{{ route('experiences.index') }}">Experiences</a>
+                            </li>
+                             <li class="sub-nav-item">
+                                <a class="sub-nav-link" href="{{ route('education.index') }}">Education</a>
+                            </li>
+                             <li class="sub-nav-item">
+                                <a class="sub-nav-link" href="{{ route('certificates.index') }}">Certificates</a>
+                            </li>
+                             <li class="sub-nav-item">
+                                <a class="sub-nav-link" href="{{ route('categories.index') }}">Categories</a>
+                            </li>
+                             <li class="sub-nav-item">
+                                <a class="sub-nav-link" href="{{ route('skills.index') }}">Skills</a>
+                            </li>
 
                         </ul>
                    </div>

@@ -7,10 +7,10 @@
 <div class="card">
     <div class="card-body">
         @if (isset($project))
-        <form class="row g-3" method="POST" action="{{ route('admin.project.update', $project->id) }}" enctype="multipart/form-data">
+        <form class="row g-3" method="POST" action="{{ route('projects.update', $project->id) }}" enctype="multipart/form-data">
             @method('PUT')
         @else
-        <form class="row g-3" method="POST" action="{{ route('admin.project.store') }}" enctype="multipart/form-data">
+        <form class="row g-3" method="POST" action="{{ route('projects.store') }}" enctype="multipart/form-data">
         @endif
             @csrf
             <input type="hidden" name="project_id" value="{{ $project->id ?? '' }}">
@@ -88,8 +88,15 @@
             </div>
 
             <div class="col-md-6">
-                <label for="category_id" class="form-label">Category ID</label>
-                <input type="number" name="category_id" id="category_id" class="form-control @error('category_id') is-invalid @enderror" value="{{ old('category_id', $project->category_id ?? '') }}">
+                <label for="category_id" class="form-label">Category</label>
+                <select name="category_id" id="category_id" class="form-select @error('category_id') is-invalid @enderror">
+                    <option value="">Select a category</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}" {{ old('category_id', $project->category_id ?? '') == $category->id ? 'selected' : '' }}>
+                            {{ $category->name_en }} | {{ $category->name_ar }}
+                        </option>
+                    @endforeach
+                </select>
                 @error('category_id')<div class="invalid-feedback">{{ $message }}</div>@enderror
             </div>
 
