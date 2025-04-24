@@ -1,8 +1,15 @@
 <?php
 
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\ExperiencesController;
 use App\Http\Controllers\Admin\FaqsController;
+use App\Http\Controllers\Admin\ProjectImageController;
 use App\Http\Controllers\Admin\ProjectVideoController;
+use App\Http\Controllers\Admin\ServiceImageController;
+use App\Http\Controllers\Admin\SocialLinkController;
+use App\Http\Controllers\Admin\TagController;
+use App\Http\Controllers\Admin\TechnologyController;
+use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Frontend\ProjectController;
 use App\Http\Controllers\Admin\ProjectsController;
 use App\Http\Controllers\Admin\servicesController;
@@ -53,14 +60,14 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('certificates', CertificateController::class)->names('certificates');
     Route::resource('categories', CategoryController::class)->names('categories');
     Route::resource('skills', SkillsController::class)->names('skills');
-    Route::resource('project-videos', \App\Http\Controllers\Admin\ProjectVideoController::class);
-    Route::resource('project-images', \App\Http\Controllers\Admin\ProjectImageController::class)->names('project-images');
-    Route::resource('service-images', \App\Http\Controllers\Admin\ServiceImageController::class)->names('service-images');
-    Route::resource('tags', \App\Http\Controllers\Admin\TagController::class)->names('tags');
-    Route::resource('social-links', \App\Http\Controllers\Admin\SocialLinkController::class)->names('social-links');
-    Route::resource('technologies', \App\Http\Controllers\Admin\TechnologyController::class)->names('technologies');
-    Route::resource('testimonials', \App\Http\Controllers\Admin\TestimonialController::class);
-    Route::resource('blogs', \App\Http\Controllers\Admin\BlogController::class)->names('blogs');
+    Route::resource('project-videos', ProjectVideoController::class);
+    Route::resource('project-images', ProjectImageController::class)->names('project-images');
+    Route::resource('service-images', ServiceImageController::class)->names('service-images');
+    Route::resource('tags', TagController::class)->names('tags');
+    Route::resource('social-links', SocialLinkController::class)->names('social-links');
+    Route::resource('technologies', TechnologyController::class)->names('technologies');
+    Route::resource('testimonials', TestimonialController::class);
+    Route::resource('blogs', BlogController::class)->names('blogs');
 
     Route::resource('services', ServicesController::class)->names('services');
 });
