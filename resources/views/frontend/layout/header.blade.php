@@ -5,7 +5,7 @@
                 <div class="logo">
                     <h1>
                         <a href="{{ route('home') }}" title="{{ __('Home') }}">
-                            <img class="scheme1-light-logo" src="{{ asset('frontend/assets/images/logo1-light.png') }}" alt="{{ __('Logo') }}" loading="lazy">
+                            <img class="scheme1-light-logo" src="{{ asset('frontend/assets/images/pngfind.com-ideas-png-1439026.png') }}" alt="{{ __('Logo') }}" loading="lazy">
                             <!-- Other logo images remain unchanged -->
                         </a>
                     </h1>
@@ -39,7 +39,7 @@
                         <li id="displayNone" class="mobile-menu-cta">
                             <a href="javascript:void(0);">
                                 <span>{{ __('LETS TALK') }}</span>
-                                <i class="far fa-long-arrow-right"></i>
+                                <i class="far {{ app()->getLocale() == 'ar' ? 'fa-long-arrow-left' : 'fa-long-arrow-right' }}"></i>
                             </a>
                         </li>
                     </ul>
@@ -55,7 +55,7 @@
                         </a>
                     </div>
                     <a href="mailto:user@yoursite.com" title=""><i class="far fa-envelope"></i>user@yoursite.com</a>
-                    <a href="javascript:void(0);" title="">{{ __('LETS TALK') }} <i class="far fa-long-arrow-right"></i></a>
+                    <a href="javascript:void(0);" title="">{{ __('LETS TALK') }} <i class="far {{ app()->getLocale() == 'ar' ? 'fa-long-arrow-left' : 'fa-long-arrow-right' }}"></i></a>
                 </div><!-- Contact Links -->
             </div><!-- Logo Menu Inner -->
         </div>

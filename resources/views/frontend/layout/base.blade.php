@@ -23,18 +23,20 @@
     @endif
 </head>
 
-<body class="bg-color12 bg-blend-luminosity dark-layer2 opc9 bg-att-fixed scheme1 dark"
+
+
+<body class=" bg-blend-luminosity  opc9 bg-att-fixed scheme1 light bg-color4 gray-layer "
     style="background-image: url({{ asset('frontend/assets/images/pattern-bg.png') }});">
     <main>
         <div class="page-loader">
             <div class="loader">
                 <div class='loader-style-1 panelLoad'>
-                    <div class='cube-face cube-face-front'>I</div>
-                    <div class='cube-face cube-face-back'>C</div>
-                    <div class='cube-face cube-face-left'>O</div>
-                    <div class='cube-face cube-face-right'>N</div>
-                    <div class='cube-face cube-face-bottom'>I</div>
-                    <div class='cube-face cube-face-top'>C</div>
+                    <div class='cube-face cube-face-front'>H</div>
+                    <div class='cube-face cube-face-back'>A</div>
+                    <div class='cube-face cube-face-left'>B</div>
+                    <div class='cube-face cube-face-right'>A</div>
+                    <div class='cube-face cube-face-bottom'>S</div>
+                    <div class='cube-face cube-face-top'>A</div>
                 </div>
                 <span class="cube-face">ALHABABSAH</span>
             </div>

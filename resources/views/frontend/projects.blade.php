@@ -64,7 +64,7 @@
                                                     <div class="port-info d-flex flex-column align-items-start w-100">
                                                         <a class="port-read rounded-circle"
                                                            href="{{ route('projects.show', $project->slug) }}">
-                                                            <i class="far fa-long-arrow-right"></i>
+                                                           <i class="far {{ app()->getLocale() == 'ar' ? 'fa-long-arrow-left' : 'fa-long-arrow-right' }}"></i>
                                                         </a>
 
                                                         <h4 class="mb-0 fw-normal sz-26">

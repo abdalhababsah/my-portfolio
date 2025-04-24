@@ -10,21 +10,6 @@
   padding-right: 2rem;
 }
 
-[dir="rtl"] .loader span {
-  right: 50%;
-}
-
-[dir="rtl"] .loader-style-1 {
-  text-align: left;
-  right: 50%;
-  margin-right: -2.3125rem;
-}
-
-[dir="rtl"] .loader-style-2 {
-  right: 50%;
-  border-right: 2px solid rgba(0, 0, 0, 0.1);
-  border-left: 2px solid rgba(0, 0, 0, 0.1);
-}
 
 [dir="rtl"] .tags-box-wrap:before {
   right: 1.25rem;
@@ -56,67 +41,22 @@
 [dir="rtl"] .cont-info-inner {
   padding-right: 2px;
 }
+/* Basic LTR separator */
+.breadcrumb li.breadcrumb-item + li.breadcrumb-item:before {
+  content: "|";
+  padding: 0 12px;
+  color: inherit;
+}
 
+/* RTL separator - keeping the same vertical line */
+[dir="rtl"] .breadcrumb li.breadcrumb-item + li.breadcrumb-item:before {
+  content: "|";
+  padding: 0 12px;
+  color: inherit;
+  float: right;
+}
 [dir="rtl"] .res-menu-close {
   left: 10px;
-}
-
-[dir="rtl"] .sidepanel {
-  right: -16.875rem;
-}
-
-[dir="rtl"] .sidepanel.show {
-  right: 0;
-}
-
-[dir="rtl"] .sidepanel > span {
-  left: -3.125rem;
-  text-align: left;
-}
-
-[dir="rtl"] .sidepanel-box > h6::before {
-  right: 0;
-}
-
-[dir="rtl"] .color-picker > a::before {
-  right: 0;
-}
-
-[dir="rtl"] .color-picker > a::after {
-  right: 50%;
-}
-
-[dir="rtl"] .sidepanel-nav li a:focus {
-  padding-right: 5px;
-}
-
-[dir="rtl"] .side-contact a i {
-  text-align: left;
-}
-
-[dir="rtl"] html[dir="rtl"] .sidepanel {
-  right: auto;
-  left: -16.875rem;
-}
-
-[dir="rtl"] html[dir="rtl"] .sidepanel.show {
-  right: auto;
-  left: 0;
-}
-
-[dir="rtl"] html[dir="rtl"] .sidepanel > span {
-  left: auto;
-  right: -3.125rem;
-}
-
-[dir="rtl"] html[dir="rtl"] .sidepanel-box > h6::before {
-  right: auto;
-  left: 0;
-}
-
-[dir="rtl"] html[dir="rtl"] .sidepanel-nav li a:focus {
-  padding-right: 0;
-  padding-left: 5px;
 }
 
 [dir="rtl"] .resume-info {
@@ -124,7 +64,7 @@
 }
 
 [dir="rtl"] .sec-sub {
-  text-align: left;
+  text-align: center;
 }
 
 [dir="rtl"] .theme-btn3:before {
@@ -151,13 +91,6 @@
   margin-right: -80%;
 }
 
-[dir="rtl"] .exp-box > span {
-  left: 0;
-}
-
-[dir="rtl"] .exp-box > h4:before {
-  right: -1.125rem;
-}
 
 [dir="rtl"] .port-cat {
   right: 1.25rem;
@@ -369,9 +302,13 @@
 }
 
 [dir="rtl"] .edu-box {
-  text-align: left;
+  text-align: right;
+  border-radius:0 var(--round15) 0 var(--round15) ;
 }
-
+.edu-box > span, .exp-box > span{
+  left:0px;
+  right: auto;
+}
 [dir="rtl"] .single-detail-nav-left > a {
   padding-left: 10px;
 }

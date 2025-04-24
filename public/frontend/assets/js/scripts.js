@@ -109,55 +109,128 @@
     if (width < 1199) {
       // Open menu
       $(".res-menu-btn").on("click", function () {
-          $("nav > ul").addClass("slidein");
-          $(".res-menu-close").addClass("d-inline-flex");
-          return false;
+        $("nav > ul").addClass("slidein");
+        $(".res-menu-close").addClass("d-inline-flex");
+        return false;
       });
-  
+
       // Prevent propagation inside menu
       $("nav > ul").on("click", function (e) {
-          e.stopPropagation();
+        e.stopPropagation();
       });
-  
+
       // Close menu when clicking outside
       $("html, body").on("click", function (e) {
-          if (!$(e.target).closest("nav > ul").length && !$(e.target).closest(".res-menu-btn").length) {
-              $("nav > ul").removeClass("slidein");
-              $(".res-menu-close").removeClass("d-inline-flex");
-          }
-      });
-  
-      // Close menu when any item is clicked
-      $("nav > ul > li > a").on("click", function () {
+        if (!$(e.target).closest("nav > ul").length && !$(e.target).closest(".res-menu-btn").length) {
           $("nav > ul").removeClass("slidein");
           $(".res-menu-close").removeClass("d-inline-flex");
+        }
       });
-  
+
+      // Close menu when any item is clicked
+      $("nav > ul > li > a").on("click", function () {
+        $("nav > ul").removeClass("slidein");
+        $(".res-menu-close").removeClass("d-inline-flex");
+      });
+
       // Dropdown toggle
       $("nav li.menu-item-has-children > a > i").on("click", function () {
-          $(this).parent().parent().siblings("li").children("ul").slideUp();
-          $(this).parent().parent().siblings("li").removeClass("active");
-          $(this).parent().parent().children("ul").slideToggle();
-          $(this).parent().parent().toggleClass("active");
-          return false;
+        $(this).parent().parent().siblings("li").children("ul").slideUp();
+        $(this).parent().parent().siblings("li").removeClass("active");
+        $(this).parent().parent().children("ul").slideToggle();
+        $(this).parent().parent().toggleClass("active");
+        return false;
       });
-  }
+    }
 
-//   $(document).ready(function() {
-//     // Check on page load
-//     if ($(window).scrollTop() === 0) {
-//         $('#stickyHeader').addClass('at-top');
-//     }
-    
-//     // Handle scroll event
-//     $(window).scroll(function() {
-//         if ($(this).scrollTop() > 50) {
-//             $('#stickyHeader').removeClass('at-top').addClass('scrolled');
-//         } else {
-//             $('#stickyHeader').addClass('at-top').removeClass('scrolled');
-//         }
-//     });
-// });
+    //   $(document).ready(function() {
+    //     // Check on page load
+    //     if ($(window).scrollTop() === 0) {
+    //         $('#stickyHeader').addClass('at-top');
+    //     }
+
+    //     // Handle scroll event
+    //     $(window).scroll(function() {
+    //         if ($(this).scrollTop() > 50) {
+    //             $('#stickyHeader').removeClass('at-top').addClass('scrolled');
+    //         } else {
+    //             $('#stickyHeader').addClass('at-top').removeClass('scrolled');
+    //         }
+    //     });
+    // });
+    // Certificate Section Animation with jQuery
+    $(document).ready(function () {
+      // Add animation classes to certificates when they come into view
+      const $certificateBoxes = $('.certificate-box');
+
+      if ('IntersectionObserver' in window) {
+        const certificateObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              $(entry.target).addClass('wow fadeInUp');
+              certificateObserver.unobserve(entry.target);
+
+              // Add a slight delay between each certificate animation
+              setTimeout(() => {
+                $(entry.target).css('visibility', 'visible');
+              }, 200 * $certificateBoxes.index($(entry.target)));
+            }
+          });
+        }, {
+          threshold: 0.2
+        });
+
+        $certificateBoxes.each(function () {
+          $(this).css('visibility', 'hidden');
+          certificateObserver.observe(this);
+        });
+      } else {
+        // Fallback for browsers that don't support IntersectionObserver
+        $certificateBoxes.addClass('wow fadeInUp');
+        $certificateBoxes.css('visibility', 'visible');
+      }
+
+      // Add hover effect for certificate boxes
+      $certificateBoxes.hover(
+        function () {
+          // Mouse enter
+          const $icon = $(this).find('.cert-icon');
+          if ($icon.length) {
+            $icon.css({
+              'transition': 'transform 0.3s ease, color 0.3s ease',
+              'transform': 'rotate(15deg) scale(1.2)',
+              'color': 'var(--scheme1)',
+              'opacity': '1'
+            });
+          }
+        },
+        function () {
+          // Mouse leave
+          const $icon = $(this).find('.cert-icon');
+          if ($icon.length) {
+            $icon.css({
+              'transform': 'rotate(0) scale(1)',
+              'opacity': '0.7'
+            });
+          }
+        }
+      );
+
+      // Add click event for certificate view buttons to track analytics (if needed)
+      $('.certificate-box .btn').on('click', function (e) {
+        // Optional: Track certificate view analytics
+        const certificateTitle = $(this).closest('.certificate-box').find('h4').text();
+        console.log(`Certificate viewed: ${certificateTitle}`);
+
+        // If you have analytics, you could add the tracking code here
+        // Example: if (typeof gtag !== 'undefined') { gtag('event', 'view_certificate', { 'certificate_name': certificateTitle }); }
+      });
+
+      // Initialize WOW.js if it's included in your project
+      if (typeof WOW !== 'undefined') {
+        new WOW().init();
+      }
+    });
     //===== LightBox =====//
     if ($.isFunction($.fn.fancybox)) {
       $('[data-fancybox],[data-fancybox="gallery"]').fancybox({});

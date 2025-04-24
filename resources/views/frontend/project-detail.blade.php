@@ -210,7 +210,7 @@
                                                     @if ($previous)
                                                         <a href="{{ route('projects.show', $previous->slug) }}"
                                                             class="d-flex align-items-center">
-                                                            <i class="fas fa-arrow-left me-2"></i>
+                                                            <i class="fas {{ app()->getLocale() == 'ar' ? 'fa-arrow-right ms-2' : 'fa-arrow-left me-2' }}"></i>
                                                             <div>
                                                                 <small>{{ __('Previous Project') }}</small>
                                                                 <h5 class="mb-0">{{ Str::limit($previous->title, 20) }}
@@ -228,7 +228,7 @@
                                                                 <small>{{ __('Next Project') }}</small>
                                                                 <h5 class="mb-0">{{ Str::limit($next->title, 20) }}</h5>
                                                             </div>
-                                                            <i class="fas fa-arrow-right ms-2"></i>
+                                                            <i class="fas {{ app()->getLocale() == 'ar' ? 'fa-arrow-left ms-2' : 'fa-arrow-right me-2' }}"></i>
                                                         </a>
                                                     @endif
                                                 </div>

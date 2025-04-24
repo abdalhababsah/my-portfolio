@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ExperiencesController;
 use App\Http\Controllers\Admin\FaqsController;
+use App\Http\Controllers\Admin\ProjectVideoController;
 use App\Http\Controllers\Frontend\ProjectController;
 use App\Http\Controllers\Admin\ProjectsController;
 use App\Http\Controllers\Admin\servicesController;
@@ -13,8 +14,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\EducationController;
 use App\Http\Controllers\Admin\CertificateController;
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\ProjectTechnologyController;
+// use App\Http\Controllers\Admin\ProjectTechnologyController;
 use App\Http\Controllers\Admin\SkillsController;
+use App\Http\Controllers\Frontend\ContactController;
 
 require __DIR__ . '/auth.php';
 Route::get('/lang/{locale}', [LocalizationController::class, 'switchLang'])->name('locale.switch');
@@ -37,20 +39,21 @@ Route::get('/services/{slug}', [UserServicesController::class, 'show'])->name('s
 Route::get('/service-detail', [HomeController::class, 'serviceDetail'])->name('service.detail');
 Route::get('/projects',           [ProjectController::class, 'index'])->name('projects.index');
 Route::get('/projects/{slug}',    [ProjectController::class, 'show'])->name('projects.show');
-
+Route::post('/contact', [ContactController::class, 'store'])
+     ->name('contact.store');
 
 
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
-    Route::resource('projects', ProjectsController::class);
-    Route::resource('faqs', FaqsController::class);
-    Route::resource('experiences', ExperiencesController::class);
-    Route::resource('education', EducationController::class);
-    Route::resource('certificates', CertificateController::class)->names('certificates');
-    Route::resource('categories', CategoryController::class)->names('categories');
-    Route::resource('skills', SkillsController::class)->names('skills');
-    Route::resource('project-videos', \App\Http\Controllers\Admin\ProjectVideoController::class);
-    Route::resource('project-technology', ProjectTechnologyController::class);
+    Route::resource('projects', ProjectsController::class)->names('admin.projects');
+    Route::resource('faqs', FaqsController::class)->names('admin.faqs');
+    Route::resource('experiences', ExperiencesController::class)->names('admin.experiences');
+    Route::resource('education', EducationController::class)->names('admin.education');
+    Route::resource('certificates', CertificateController::class)->names( 'admin.certificates');
+    Route::resource('categories', CategoryController::class)->names('admin.categories');
+    Route::resource('skills', SkillsController::class)->names('admin.skills');
+    Route::resource('project-videos', ProjectVideoController::class);
+    // Route::resource('project-technology', ProjectTechnologyController::class);
 
     Route::get('/services',             [servicesController::class, 'index'])->name('admin.services.index');
 });

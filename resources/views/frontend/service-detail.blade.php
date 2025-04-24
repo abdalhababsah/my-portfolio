@@ -227,7 +227,7 @@
                                             data-wow-duration=".8s" data-wow-delay=".{{ $loop->iteration * 2 }}s">
                                             <div class="serv-box round15 d-flex flex-column position-relative w-100">
                                                 <a class="serv-read rounded-circle" href="{{ route('services.show', $relatedService->slug) }}"
-                                                    title="{{ $relatedService->title }}"><i class="far fa-long-arrow-right"></i></a>
+                                                    title="{{ $relatedService->title }}"><i class="far {{ app()->getLocale() == 'ar' ? 'fa-long-arrow-left' : 'fa-long-arrow-right' }}"></i></a>
                                                 <h3 class="mb-0 fw-normal sz-24"><a href="{{ route('services.show', $relatedService->slug) }}"
                                                         title="{{ $relatedService->title }}">{!! nl2br(e($relatedService->title)) !!}</a></h3>
                                                 <p class="mb-0">{{ Str::limit(strip_tags($relatedService->description), 60) }}</p>

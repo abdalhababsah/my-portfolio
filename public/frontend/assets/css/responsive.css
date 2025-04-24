@@ -237,7 +237,7 @@
       height: 3rem;
       width: 3rem;
       border-radius: 50%;
-      background: linear-gradient(135deg, var(--scheme2) 0%, var(--scheme1) 100%);
+      background: linear-gradient(135deg, var(--scheme1) 0%, var(--scheme1) 100%);
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
       transition: all 0.3s ease;
   }
@@ -289,7 +289,7 @@
       right: -320px;
       width: 300px;
       height: 100vh;
-      background: linear-gradient(135deg, var(--scheme2) 0%, var(--color5) 100%);
+      background: linear-gradient(135deg, var(--scheme1) 0%, var(--color5) 100%);
       z-index: 9999;
       padding: 80px 25px 30px !important;
       overflow-y: auto;
@@ -400,7 +400,7 @@
       
       .mobile-menu-cta a {
           background: var(--white);
-          color: var(--scheme2) !important;
+          color: var(--scheme1) !important;
           border-radius: 30px;
           padding: 15px 25px !important;
           justify-content: center;

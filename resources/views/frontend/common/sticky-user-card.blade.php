@@ -1,31 +1,29 @@
-<div class="resume-sidebar d-flex flex-column position-sticky">
+<aside class="resume-sidebar d-flex flex-column position-sticky">
     <div class="theiaStickySidebar">
         <div class="resume-info round50 d-flex flex-column position-relative w-100">
-            <div class="user-img round40 overflow-hidden position-relative w-100"><img
-                    class="img-fluid w-100" src="assets/images/resources/user-img.png"
-                    alt="User Image" loading="lazy"></div>
-            <!-- User Image -->
+            <div class="user-img round40 overflow-hidden position-relative w-100">
+                <img class="img-fluid w-100"
+                    src="{{ asset('frontend/assets/images/my-image.jpeg') }}"
+                    alt="{{ __('User Image') }}" loading="lazy">
+            </div>
             <div class="user-info d-flex flex-column align-items-start w-100">
-                <a href="mailto:hello@ikonicwebs.co" title="">hello@ikonicwebs.co</a>
-                <span>Base in 2489 Locust, USA</span>
-                <p class="mb-0">&copy; 2023 <a href="index.html" title="">ikonicwebs</a>. All
-                    Rights
-                    Reserved</p>
-            </div><!-- User Info -->
+                <a href="mailto:{{ $settings['contact_email'] ?? 'email@example.com' }}"
+                    title="">{{ $settings['contact_email'] ?? 'contact@site.com' }}</a>
+                <span>{{ $settings['base_location'] ?? __('Jordan') }}</span>
+                <p class="mb-0">&copy; {{ date('Y') }} <a href="{{ url('/') }}"
+                        title="">{{ $settings['site_title'] ?? 'Abdelrahman Portfolio' }}</a>.
+                    {{ __('All Rights Reserved') }}</p>
+            </div>
             <div
                 class="user-social-wrap d-flex align-items-center justify-content-between position-relative w-100">
-                <span>Follow Me:</span>
+                <span>{{ __('Follow Me:') }}</span>
                 <div class="social-links d-flex align-items-center gap-1">
-                    <a href="https://www.facebook.com/" title="Facebook" target="_blank"><i
-                            class="fab fa-facebook-f"></i></a>
-                    <a href="https://twitter.com/" title="Twitter" target="_blank"><i
-                            class="fab fa-twitter"></i></a>
-                    <a href="https://www.linkedin.com/" title="Linkedin" target="_blank"><i
-                            class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.instagram.com/" title="Instagram" target="_blank"><i
-                            class="fab fa-instagram"></i></a>
-                </div><!-- Social Links -->
-            </div><!-- User Social Wrap -->
-        </div><!-- Resume Info -->
+                    @foreach ($socialLinks as $social)
+                        <a href="{{ $social->url }}" title="{{ $social->platform }}"
+                            target="_blank"><i class="fab {{ $social->icon_class }}"></i></a>
+                    @endforeach
+                </div>
+            </div>
+        </div>
     </div>
-</div><!-- Resume Sidebar -->
+</aside>

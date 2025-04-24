@@ -61,7 +61,7 @@
 /*===== General Variables =====*/
 :root {
   --scheme1: #C19A6B	;
-  --scheme2: #C19A6B;
+  --scheme2: #6344c6;
   --scheme3: #ff7300;
   --scheme4: #a0ce4e;
   --scheme5: #f64243;
@@ -2644,6 +2644,10 @@ header.stick {
   top: 0;
   display: block;
 }
+.scheme1-light-logo{
+  max-height: 40px;
+
+}
 .scheme1.dark .logo a img.scheme1-light-logo,
 .scheme2.dark .logo a img.scheme2-light-logo,
 .scheme3.dark .logo a img.scheme3-light-logo,
@@ -2767,7 +2771,7 @@ nav ul li.active > a:before {
   gap: 10px;
   border-radius: 0 0 var(--round10) var(--round10);
   padding: 0.9375rem 1.875rem;
-  background-color: var(--scheme2);
+  background-color: var(--scheme1);
   transition: var(--transition);
 }
 
@@ -2784,8 +2788,7 @@ nav ul li.active > a:before {
 html[dir="rtl"] .lang-switcher .lang-btn i {
   transform: scaleX(-1);
 }
-
-/*===== Sidepanel =====*/
+/*===== Enhanced Sidepanel Styles =====*/
 .sidepanel {
   padding: 1.875rem;
   position: fixed;
@@ -2793,11 +2796,19 @@ html[dir="rtl"] .lang-switcher .lang-btn i {
   z-index: 999999;
   left: -16.875rem;
   top: 6.25rem;
-  z-index: 99999999;
+  background-color: var(--color5);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 5px 0 20px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
+
 .sidepanel.show {
   left: 0;
 }
+
+/* Toggle Button */
 .sidepanel > span {
   position: absolute;
   right: -3.125rem;
@@ -2808,14 +2819,66 @@ html[dir="rtl"] .lang-switcher .lang-btn i {
   font-size: 1.375rem;
   color: var(--white);
   top: 0;
-  -webkit-border-radius: 0 var(--round5) var(--round5) 0;
   border-radius: 0 var(--round5) var(--round5) 0;
+  background-color: var(--color5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: none;
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
+
+.sidepanel > span i {
+  transition: transform 0.6s ease;
+}
+
+.sidepanel > span.spin i {
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Sidepanel Header */
+.sidepanel-header {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidepanel-title {
+  color: var(--white);
+  font-family: var(--Bricolage-Grotesque);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.sidepanel-subtitle {
+  color: var(--color3);
+  font-size: 0.875rem;
+}
+
+/* Sidepanel Box */
+.sidepanel-box {
+  position: relative;
+}
+
 .sidepanel-box > h6 {
   position: relative;
   padding-bottom: 12px;
   color: var(--white);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
+
 .sidepanel-box > h6::before {
   content: "";
   background: var(--color2);
@@ -2825,6 +2888,23 @@ html[dir="rtl"] .lang-switcher .lang-btn i {
   bottom: 0;
   position: absolute;
 }
+
+/* Original Color Picker */
+.color-picker > a {
+  height: 2.1875rem;
+  width: 2.1875rem;
+  cursor: pointer;
+  position: relative;
+  display: block;
+  border-radius: var(--round3);
+  transition: transform 0.3s ease;
+}
+
+.color-picker > a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
 .color-picker > a::before {
   height: 100%;
   top: 0;
@@ -2834,9 +2914,11 @@ html[dir="rtl"] .lang-switcher .lang-btn i {
   z-index: 1;
   content: "";
 }
-.color-picker > a.color-picker::before {
+
+.color-picker > a.applied::before {
   width: 100%;
 }
+
 .color-picker > a::after {
   color: var(--white);
   content: "\f00c";
@@ -2846,56 +2928,171 @@ html[dir="rtl"] .lang-switcher .lang-btn i {
   position: absolute;
   font-family: "Font Awesome 5 Pro";
   opacity: 0;
-  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   z-index: 2;
 }
+
 .color-picker > a.applied::after {
   opacity: 1;
 }
-.color-picker > a {
-  height: 2.1875rem;
-  width: 2.1875rem;
-  cursor: pointer;
-  position: relative;
-  display: block;
-  -webkit-border-radius: var(--round3);
-  border-radius: var(--round3);
-}
+
+/* Skin Mode */
 .skin-mode > a {
   display: block;
   background-color: var(--color2);
   color: var(--white);
   font-size: 0.9375rem;
-  -webkit-border-radius: var(--round3);
   border-radius: var(--round3);
   padding: 3px 0.9375rem;
-}
-/* Sidebar Navigation */
-.sidepanel-nav li {
-  margin-bottom: 10px;
+  transition: all 0.3s ease;
 }
 
-.sidepanel-nav li:last-child {
-  margin-bottom: 0;
+.skin-mode > a:hover,
+.skin-mode > a:focus {
+  background-color: var(--scheme1);
+  transform: translateY(-2px);
 }
 
-.sidepanel-nav li a {
+.skin-mode > a.applied {
+  background-color: var(--scheme1);
+}
+
+/* Language Switcher */
+.language-switcher {
+  width: 100%;
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  padding: 5px 0.9375rem;
+  border-radius: var(--round3);
   color: var(--white);
-  font-family: var(--Bricolage-Grotesque);
+  font-size: 0.9375rem;
+  background-color: var(--color2);
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.lang-option:hover {
+  background-color: var(--scheme1);
+  transform: translateY(-2px);
+}
+
+.lang-option.applied {
+  background-color: var(--scheme1);
+}
+
+.flag-icon {
+  margin-right: 0.5rem;
   font-size: 1rem;
-  font-weight: 500;
-  display: block;
-  padding: 5px 0;
-  transition: var(--transition);
 }
 
-.sidepanel-nav li a:hover,
-.sidepanel-nav li a:focus {
-  color: var(--scheme1);
-  padding-left: 5px;
+/* Sidepanel Footer */
+.sidepanel-footer {
+  text-align: center;
+  font-size: 0.75rem;
+  color: var(--color3);
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* RTL Support */
+[dir="rtl"] .sidepanel {
+  left: auto;
+  right: -16.875rem;
+  border-right: none;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[dir="rtl"] .sidepanel.show {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] .sidepanel > span {
+  right: auto;
+  left: -3.125rem;
+  border-radius: var(--round5) 0 0 var(--round5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-right: none;
+}
+
+[dir="rtl"] .sidepanel-box > h6::before {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] .color-picker > a::before {
+  left: auto;
+  right: 0;
+}
+
+[dir="rtl"] .color-picker > a::after {
+  left: auto;
+  right: 50%;
+  transform: translate(50%, -50%);
+}
+
+[dir="rtl"] .flag-icon {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+
+/* Light mode overrides */
+.light .sidepanel {
+  background-color: var(--white);
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light .sidepanel > span {
+  background-color: var(--white);
+  color: var(--color7);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: none;
+}
+
+.light .sidepanel-title {
+  color: var(--color7);
+}
+
+.light .sidepanel-box > h6 {
+  color: var(--color7);
+}
+
+.light .sidepanel-header,
+.light .sidepanel-footer {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Animation for panel opening/closing */
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.sidepanel.show {
+  animation: slideIn 0.4s forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+[dir="rtl"] .slide-in-animation {
+  animation: slideIn 0.4s forwards;
+}
 /* Language switcher in sidebar */
 .lang-switch .skin-mode {
   display: flex;
@@ -3064,7 +3261,171 @@ html[dir="rtl"] .sidepanel-nav li a:focus {
   max-width: calc(100% - 34.0625rem);
 }
 
+/* Certificate Section Styles */
 
+/* Main certificate section wrapper */
+.certificate-wrap {
+  margin-bottom: -2.5rem;
+  max-width: calc(100% - 1.25rem);
+}
+
+/* Individual certificate box */
+.certificate-box {
+  position: relative;
+  margin-bottom: 2.5rem;
+  background-color: var(--color1);
+  border: 1px solid var(--color6);
+  z-index: 1;
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Certificate box pseudo-element for shadow effect */
+.certificate-box:before {
+  content: "";
+  position: absolute;
+  left: 1.25rem;
+  top: 1.25rem;
+  background-color: var(--color5);
+  -webkit-border-radius: inherit;
+  border-radius: inherit;
+  z-index: -1;
+  bottom: -1.25rem;
+  right: -1.25rem;
+}
+
+/* Certificate box hover effect */
+.certificate-box:hover {
+  border-color: var(--scheme1);
+  transform: translateY(-5px);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Certificate content area */
+.certificate-content {
+  flex: 1;
+}
+
+/* Certificate footer - pushes button to bottom */
+.certificate-footer {
+  margin-top: auto;
+  width: 100%;
+}
+
+/* Certificate title */
+.certificate-box h4 {
+  color: var(--white);
+  font-family: var(--Bricolage-Grotesque);
+  font-weight: 400;
+  font-size: 1.5rem;
+  line-height: 1.3;
+}
+
+/* Certificate info paragraphs */
+.certificate-box p {
+  font-size: 1.125rem;
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+}
+
+/* Certificate issuer/date emphasis */
+.certificate-box p strong {
+  font-family: var(--Bricolage-Grotesque);
+  font-weight: 600;
+  color: var(--color3);
+}
+
+/* Certificate view button */
+.certificate-box .btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--Bricolage-Grotesque);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 0.625rem 1.25rem;
+  border: 2px solid var(--scheme1);
+  background-color: transparent;
+  color: var(--scheme1);
+  border-radius: var(--round5);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Button hover effect */
+.certificate-box .btn:hover {
+  color: var(--white);
+}
+
+/* Button hover background effect */
+.certificate-box .btn:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--scheme1);
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.certificate-box .btn:hover:before {
+  transform: scaleX(1);
+}
+
+/* Certificate icon */
+.certificate-box .cert-icon {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  font-size: 1.5rem;
+  color: var(--scheme1);
+  opacity: 0.7;
+}
+
+/* Certificate box light mode styles */
+.light .certificate-box {
+  background-color: var(--white);
+}
+
+.light .certificate-box:before {
+  background-color: var(--color9);
+}
+
+.light .certificate-box h4 {
+  color: var(--color7);
+}
+
+.light .certificate-box p strong {
+  color: var(--color8);
+}
+
+/* Certificate issuer badge */
+.certificate-box .issuer-badge {
+  display: inline-block;
+  padding: 0.3125rem 0.9375rem;
+  background-color: rgba(193, 154, 107, 0.15);
+  border-radius: var(--round50);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--scheme1);
+  margin-bottom: 1rem;
+}
+
+/* For RTL support */
+html[dir="rtl"] .certificate-box .cert-icon {
+  right: auto;
+  left: 1.25rem;
+}
+
+html[dir="rtl"] .certificate-box .btn i {
+  transform: scaleX(-1);
+}
 
 
 /*===== Intro Box Style =====*/
@@ -3294,7 +3655,6 @@ html[dir="rtl"] .sidepanel-nav li a:focus {
 }
 .sec-title > h2 {
   font-weight: 400;
-  max-width: 90%;
 }
 
 /*===== About Style =====*/
