@@ -53,6 +53,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('project-videos', \App\Http\Controllers\Admin\ProjectVideoController::class);
     Route::resource('project-images', \App\Http\Controllers\Admin\ProjectImageController::class)->names('project-images');
     Route::resource('service-images', \App\Http\Controllers\Admin\ServiceImageController::class)->names('service-images');
+    Route::resource('tags', \App\Http\Controllers\Admin\TagController::class)->names('tags');
+    Route::resource('social-links', \App\Http\Controllers\Admin\SocialLinkController::class)->names('social-links');
+    Route::resource('technologies', \App\Http\Controllers\Admin\TechnologyController::class)->names('technologies');
+    Route::resource('testimonials', \App\Http\Controllers\Admin\TestimonialController::class);
+    Route::resource('blogs', \App\Http\Controllers\Admin\BlogController::class)->names('blogs');
 
     Route::resource('services', ServicesController::class)->names('services');
 });
