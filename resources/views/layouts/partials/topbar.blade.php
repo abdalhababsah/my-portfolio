@@ -21,7 +21,7 @@
                </div>
 
                <div class="d-flex align-items-center gap-2">
-                    <!-- Theme Color (Light/Dark) -->
+                    {{-- <!-- Theme Color (Light/Dark) -->
                     <div class="topbar-item">
                          <button type="button" class="topbar-button" id="light-dark-mode">
                               <iconify-icon icon="solar:moon-outline"
@@ -29,10 +29,10 @@
                               <iconify-icon icon="solar:sun-2-outline"
                                    class="fs-22 align-middle dark-mode"></iconify-icon>
                          </button>
-                    </div>
+                    </div> --}}
 
                     <!-- Notification -->
-                    <div class="dropdown topbar-item">
+                    {{-- <div class="dropdown topbar-item">
                          <button type="button" class="topbar-button position-relative"
                               id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
                               aria-expanded="false">
@@ -141,7 +141,7 @@
                                              class="bx bx-right-arrow-alt ms-1"></i></a>
                               </div>
                          </div>
-                    </div>
+                    </div> --}}
 
                     <!-- User -->
                     <div class="dropdown topbar-item">

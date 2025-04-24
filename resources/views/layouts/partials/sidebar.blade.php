@@ -405,55 +405,13 @@
                    <div class="collapse" id="sidebarAuthentication">
                         <ul class="nav sub-navbar-nav">
                              <li class="sub-nav-item">
-                                  <a class="sub-nav-link" href="{{ route('projects.index') }}">Projects</a>
+                                  <a class="sub-nav-link" href="{{ route('admin.projects.index') }}">Projects</a>
                              </li>
+                             
                              <li class="sub-nav-item">
-                                  <a class="sub-nav-link" href="{{ route('project-videos.index') }}">Project Videos</a>
-                             </li>
-                             <li class="sub-nav-item">
-                                  <a class="sub-nav-link" href="{{ route('project-images.index') }}">Project Images</a>
-                             </li>
-
-                             <li class="sub-nav-item">
-                                  <a class="sub-nav-link" href="{{ route('services.index') }}">Services</a>
-                             </li>
-
-                             <li class="sub-nav-item">
-                                  <a class="sub-nav-link" href="{{ route('service-images.index') }}">Service Images</a>
-                             </li>
-                             <li class="sub-nav-item">
-                                <a class="sub-nav-link" href="{{ route('tags.index') }}">Tags</a>
+                                <a class="sub-nav-link" href="{{ route('admin.categories.index') }}">Categories</a>
                             </li>
-                             <li class="sub-nav-item">
-                                <a class="sub-nav-link" href="{{ route('faqs.index') }}">FAQs</a>
-                            </li>
-                             <li class="sub-nav-item">
-                                <a class="sub-nav-link" href="{{ route('experiences.index') }}">Experiences</a>
-                            </li>
-                             <li class="sub-nav-item">
-                                <a class="sub-nav-link" href="{{ route('education.index') }}">Education</a>
-                            </li>
-                             <li class="sub-nav-item">
-                                <a class="sub-nav-link" href="{{ route('certificates.index') }}">Certificates</a>
-                            </li>
-                             <li class="sub-nav-item">
-                                <a class="sub-nav-link" href="{{ route('categories.index') }}">Categories</a>
-                            </li>
-                             <li class="sub-nav-item">
-                                <a class="sub-nav-link" href="{{ route('skills.index') }}">Skills</a>
-                            </li>
-                             <li class="sub-nav-item">
-                                <a class="sub-nav-link" href="{{ route('social-links.index') }}">Social Links</a>
-                            </li>
-                             <li class="sub-nav-item">
-                                <a class="sub-nav-link" href="{{ route('technologies.index') }}">Technologies</a>
-                            </li>
-                             <li class="sub-nav-item">
-                                <a class="sub-nav-link" href="{{ route('testimonials.index') }}">Testimonials</a>
-                            </li>
-                             <li class="sub-nav-item">
-                                <a class="sub-nav-link" href="{{ route('blogs.index') }}">Blogs</a>
-                            </li>
+ 
 
                         </ul>
                    </div>

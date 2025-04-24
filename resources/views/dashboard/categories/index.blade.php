@@ -14,7 +14,7 @@
 <div class="card">
 
     <div class="card-body">
-        <a href="{{ route('categories.create') }}" class="btn btn-primary float-end">Create Categories</a>
+        <a href="{{ route('admin.categories.create') }}" class="btn btn-primary float-end">Create Categories</a>
         <div id="table-projects" style="overflow: auto"></div>
 
     </div>
@@ -34,8 +34,8 @@
             columns: @json($columns),
             data: @json($data),
             routes: {
-                edit: "{{ route('categories.edit' , ':id') }}",
-                delete: "{{ route('categories.destroy' , ':id') }}",
+                edit: "{{ route('admin.categories.edit' , ':id') }}",
+                delete: "{{ route('admin.categories.destroy' , ':id') }}",
             }
         }
     ];

@@ -53,7 +53,7 @@ class CategoryController extends Controller
     {
         try {
             Category::create($request->validated());
-            return redirect()->route('categories.index')->with('success', 'Category created successfully.');
+            return redirect()->route('admin.categories.index')->with('success', 'Category created successfully.');
         } catch (Exception $e) {
             Log::error("Category store error: " . $e->getMessage());
             return back()->withInput()->with('error', 'Failed to create category.');
@@ -67,7 +67,7 @@ class CategoryController extends Controller
             return view('dashboard.categories.create-edit', compact('category'));
         } catch (Exception $e) {
             Log::error("Category edit error [ID: $id]: " . $e->getMessage());
-            return redirect()->route('categories.index')->with('error', 'Category not found.');
+            return redirect()->route('admin.categories.index')->with('error', 'Category not found.');
         }
     }
 
@@ -76,7 +76,7 @@ class CategoryController extends Controller
         try {
             $category = Category::findOrFail($id);
             $category->update($request->validated());
-            return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
+            return redirect()->route('admin.categories.index')->with('success', 'Category updated successfully.');
         } catch (Exception $e) {
             Log::error("Category update error [ID: $id]: " . $e->getMessage());
             return back()->withInput()->with('error', 'Failed to update category.');
@@ -87,10 +87,10 @@ class CategoryController extends Controller
     {
         try {
             $category->delete();
-            return redirect()->route('categories.index')->with('success', 'Category deleted.');
+            return redirect()->route('admin.categories.index')->with('success', 'Category deleted.');
         } catch (Exception $e) {
             Log::error("Category delete error [ID: {$category->id}]: " . $e->getMessage());
-            return redirect()->route('categories.index')->with('error', 'Failed to delete category.');
+            return redirect()->route('admin.categories.index')->with('error', 'Failed to delete category.');
         }
     }
 }

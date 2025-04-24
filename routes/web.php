@@ -1,29 +1,13 @@
 <?php
 
-use App\Http\Controllers\Admin\BlogController;
-use App\Http\Controllers\Admin\ExperiencesController;
-use App\Http\Controllers\Admin\FaqsController;
-use App\Http\Controllers\Admin\ProjectImageController;
-use App\Http\Controllers\Admin\ProjectVideoController;
-use App\Http\Controllers\Admin\ServiceImageController;
-use App\Http\Controllers\Admin\SocialLinkController;
-use App\Http\Controllers\Admin\TagController;
-use App\Http\Controllers\Admin\TechnologyController;
-use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Frontend\ProjectController;
 use App\Http\Controllers\Admin\ProjectsController;
-use App\Http\Controllers\Admin\servicesController;
 use App\Http\Controllers\Frontend\ServiceController as UserServicesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\RoutingController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Admin\EducationController;
-use App\Http\Controllers\Admin\CertificateController;
 use App\Http\Controllers\Admin\CategoryController;
-// use App\Http\Controllers\Admin\ProjectImageController;
-use App\Http\Controllers\Admin\ProjectTechnologyController;
-use App\Http\Controllers\Admin\SkillsController;
 use App\Http\Controllers\Frontend\ContactController;
 
 require __DIR__ . '/auth.php';
@@ -53,21 +37,12 @@ Route::post('/contact', [ContactController::class, 'store'])
 
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
-    Route::resource('projects', ProjectsController::class);
-    Route::resource('faqs', FaqsController::class);
-    Route::resource('experiences', ExperiencesController::class);
-    Route::resource('education', EducationController::class);
-    Route::resource('certificates', CertificateController::class)->names('certificates');
-    Route::resource('categories', CategoryController::class)->names('categories');
-    Route::resource('skills', SkillsController::class)->names('skills');
-    Route::resource('project-videos', ProjectVideoController::class);
-    Route::resource('project-images', ProjectImageController::class)->names('project-images');
-    Route::resource('service-images', ServiceImageController::class)->names('service-images');
-    Route::resource('tags', TagController::class)->names('tags');
-    Route::resource('social-links', SocialLinkController::class)->names('social-links');
-    Route::resource('technologies', TechnologyController::class)->names('technologies');
-    Route::resource('testimonials', TestimonialController::class);
-    Route::resource('blogs', BlogController::class)->names('blogs');
+    Route::get('dashboard', [ProjectController::class,'index'])->name('dashboard');
+    Route::resource('projects', ProjectsController::class)->names('admin.projects');
+    Route::resource('categories', CategoryController::class)->names('admin.categories');
 
-    Route::resource('services', ServicesController::class)->names('services');
+    Route::put('projects/{id}/toggle-featured', [ProjectsController::class, 'toggleFeatured'])->name('admin.projects.toggle-featured');
+    Route::put('projects/{id}/set-main-image', [ProjectsController::class, 'setMainImage'])->name('admin.projects.set-main-image');
+    Route::delete('projects/{id}/images/{imageId}', [ProjectsController::class, 'deleteImage'])->name('admin.projects.delete-image');
+    Route::delete('projects/{id}/videos/{videoId}', [ProjectsController::class, 'deleteVideo'])->name('admin.projects.delete-video');
 });

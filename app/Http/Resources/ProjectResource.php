@@ -28,7 +28,7 @@ class ProjectResource extends JsonResource
             'location' => $this->location,
             'year' => $this->year,
             'cover_image' => $this->cover_image,
-            'featured' => $this->featured ? 'Yes' : 'No',
+
             // 'category_id' => $this->category_id,
 
             'github_url' => $this->github_url,

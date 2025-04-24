@@ -102,6 +102,3 @@
 
 @endsection
 
-@section('scripts')
-@vite(['resources/js/pages/table-gridjs.js'])
-@endsection
