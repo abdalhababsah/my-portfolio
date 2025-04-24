@@ -1,8 +1,8 @@
-@extends('layouts.vertical', ['subtitle' => 'Services'])
+@extends('layouts.vertical', ['subtitle' => 'Testimonials'])
 
 @section('content')
 
-@include('layouts.partials/page-title', ['title' => 'Darkone', 'subtitle' => 'Services'])
+@include('layouts.partials.page-title', ['title' => 'Darkone', 'subtitle' => 'Testimonials'])
 
 <style>
     .table-responsive {
@@ -14,8 +14,7 @@
 <div class="card">
 
     <div class="card-body">
-        <a href="{{ route('services.create') }}" class="btn btn-primary float-end">Create Services</a>
-
+        <a href="{{ route('testimonials.create') }}" class="btn btn-primary float-end">Create Testimonials</a>
         <div id="table-projects" style="overflow: auto"></div>
 
     </div>
@@ -35,10 +34,12 @@
             columns: @json($columns),
             data: @json($data),
             routes: {
-                edit: "{{ route('services.edit' , ':id') }}",
-                delete: "{{ route('services.destroy' , ':id') }}",
+                edit: "{{ route('testimonials.edit' , ':id') }}",
+                delete: "{{ route('testimonials.destroy' , ':id') }}",
             }
         }
     ];
-</script>@vite(['resources/js/pages/table-gridjs.js'])
+</script>
+
+@vite(['resources/js/pages/table-gridjs.js'])
 @endsection

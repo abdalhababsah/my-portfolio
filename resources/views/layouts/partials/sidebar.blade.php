@@ -410,10 +410,20 @@
                              <li class="sub-nav-item">
                                   <a class="sub-nav-link" href="{{ route('project-videos.index') }}">Project Videos</a>
                              </li>
+                             <li class="sub-nav-item">
+                                  <a class="sub-nav-link" href="{{ route('project-images.index') }}">Project Images</a>
+                             </li>
 
                              <li class="sub-nav-item">
-                                  <a class="sub-nav-link" href="{{ route('admin.services.index') }}">Services</a>
+                                  <a class="sub-nav-link" href="{{ route('services.index') }}">Services</a>
                              </li>
+
+                             <li class="sub-nav-item">
+                                  <a class="sub-nav-link" href="{{ route('service-images.index') }}">Service Images</a>
+                             </li>
+                             <li class="sub-nav-item">
+                                <a class="sub-nav-link" href="{{ route('tags.index') }}">Tags</a>
+                            </li>
                              <li class="sub-nav-item">
                                 <a class="sub-nav-link" href="{{ route('faqs.index') }}">FAQs</a>
                             </li>
@@ -432,30 +442,23 @@
                              <li class="sub-nav-item">
                                 <a class="sub-nav-link" href="{{ route('skills.index') }}">Skills</a>
                             </li>
+                             <li class="sub-nav-item">
+                                <a class="sub-nav-link" href="{{ route('social-links.index') }}">Social Links</a>
+                            </li>
+                             <li class="sub-nav-item">
+                                <a class="sub-nav-link" href="{{ route('technologies.index') }}">Technologies</a>
+                            </li>
+                             <li class="sub-nav-item">
+                                <a class="sub-nav-link" href="{{ route('testimonials.index') }}">Testimonials</a>
+                            </li>
+                             <li class="sub-nav-item">
+                                <a class="sub-nav-link" href="{{ route('blogs.index') }}">Blogs</a>
+                            </li>
 
                         </ul>
                    </div>
               </li>
 
-              <li class="nav-item">
-                   <a class="nav-link menu-arrow" href="#sidebarError" data-bs-toggle="collapse" role="button"
-                        aria-expanded="false" aria-controls="sidebarError">
-                        <span class="nav-icon">
-                             <iconify-icon icon="mingcute:bug-line"></iconify-icon>
-                        </span>
-                        <span class="nav-text"> Error Pages</span>
-                   </a>
-                   <div class="collapse" id="sidebarError">
-                        <ul class="nav sub-navbar-nav">
-                             <li class="sub-nav-item">
-                                  <a class="sub-nav-link" href="">Pages 404</a>
-                             </li>
-                             <li class="sub-nav-item">
-                                  <a class="sub-nav-link" href="">Pages 404 Alt</a>
-                             </li>
-                        </ul>
-                   </div>
-              </li>
 
 
 

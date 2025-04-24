@@ -19,6 +19,8 @@ class StoreProjectRequest extends FormRequest
             'title_ar' => 'required|string|max:255',
             'short_description_en' => 'nullable|string',
             'short_description_ar' => 'nullable|string',
+            'tags' => 'nullable|array',
+            'tags.*' => 'string|max:255',
             'full_description_en' => 'nullable|string',
             'full_description_ar' => 'nullable|string',
             'role_en' => 'nullable|string|max:255',

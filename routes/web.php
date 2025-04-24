@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\ProjectVideoController;
 use App\Http\Controllers\Frontend\ProjectController;
 use App\Http\Controllers\Admin\ProjectsController;
 use App\Http\Controllers\Admin\servicesController;
-use App\Http\Controllers\Frontend\ServiceController AS UserServicesController;
+use App\Http\Controllers\Frontend\ServiceController as UserServicesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\RoutingController;
@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\EducationController;
 use App\Http\Controllers\Admin\CertificateController;
 use App\Http\Controllers\Admin\CategoryController;
-// use App\Http\Controllers\Admin\ProjectTechnologyController;
+// use App\Http\Controllers\Admin\ProjectImageController;
+use App\Http\Controllers\Admin\ProjectTechnologyController;
 use App\Http\Controllers\Admin\SkillsController;
 use App\Http\Controllers\Frontend\ContactController;
 
@@ -45,15 +46,21 @@ Route::post('/contact', [ContactController::class, 'store'])
 
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
-    Route::resource('projects', ProjectsController::class)->names('admin.projects');
-    Route::resource('faqs', FaqsController::class)->names('admin.faqs');
-    Route::resource('experiences', ExperiencesController::class)->names('admin.experiences');
-    Route::resource('education', EducationController::class)->names('admin.education');
-    Route::resource('certificates', CertificateController::class)->names( 'admin.certificates');
-    Route::resource('categories', CategoryController::class)->names('admin.categories');
-    Route::resource('skills', SkillsController::class)->names('admin.skills');
-    Route::resource('project-videos', ProjectVideoController::class);
-    // Route::resource('project-technology', ProjectTechnologyController::class);
+    Route::resource('projects', ProjectsController::class);
+    Route::resource('faqs', FaqsController::class);
+    Route::resource('experiences', ExperiencesController::class);
+    Route::resource('education', EducationController::class);
+    Route::resource('certificates', CertificateController::class)->names('certificates');
+    Route::resource('categories', CategoryController::class)->names('categories');
+    Route::resource('skills', SkillsController::class)->names('skills');
+    Route::resource('project-videos', \App\Http\Controllers\Admin\ProjectVideoController::class);
+    Route::resource('project-images', \App\Http\Controllers\Admin\ProjectImageController::class)->names('project-images');
+    Route::resource('service-images', \App\Http\Controllers\Admin\ServiceImageController::class)->names('service-images');
+    Route::resource('tags', \App\Http\Controllers\Admin\TagController::class)->names('tags');
+    Route::resource('social-links', \App\Http\Controllers\Admin\SocialLinkController::class)->names('social-links');
+    Route::resource('technologies', \App\Http\Controllers\Admin\TechnologyController::class)->names('technologies');
+    Route::resource('testimonials', \App\Http\Controllers\Admin\TestimonialController::class);
+    Route::resource('blogs', \App\Http\Controllers\Admin\BlogController::class)->names('blogs');
 
-    Route::get('/services',             [servicesController::class, 'index'])->name('admin.services.index');
+    Route::resource('services', ServicesController::class)->names('services');
 });
