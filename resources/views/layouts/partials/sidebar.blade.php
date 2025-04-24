@@ -415,7 +415,11 @@
                              </li>
 
                              <li class="sub-nav-item">
-                                  <a class="sub-nav-link" href="{{ route('admin.services.index') }}">Services</a>
+                                  <a class="sub-nav-link" href="{{ route('services.index') }}">Services</a>
+                             </li>
+
+                             <li class="sub-nav-item">
+                                  <a class="sub-nav-link" href="{{ route('service-images.index') }}">Service Images</a>
                              </li>
                              <li class="sub-nav-item">
                                 <a class="sub-nav-link" href="{{ route('faqs.index') }}">FAQs</a>

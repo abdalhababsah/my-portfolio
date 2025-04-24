@@ -52,6 +52,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('skills', SkillsController::class)->names('skills');
     Route::resource('project-videos', \App\Http\Controllers\Admin\ProjectVideoController::class);
     Route::resource('project-images', \App\Http\Controllers\Admin\ProjectImageController::class)->names('project-images');
+    Route::resource('service-images', \App\Http\Controllers\Admin\ServiceImageController::class)->names('service-images');
 
-    Route::get('/services',             [servicesController::class, 'index'])->name('admin.services.index');
+    Route::resource('services', ServicesController::class)->names('services');
 });
