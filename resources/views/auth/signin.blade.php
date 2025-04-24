@@ -13,11 +13,11 @@ class="authentication-bg"
                     <div class="card-body p-5">
                         <div class="text-center">
                             <div class="mx-auto mb-4 text-center auth-logo">
-                                <a href="{{ route('any', 'index') }}" class="logo-dark">
+                                <a href="{{ route('login') }}" class="logo-dark">
                                     <img src="/images/logo-dark.png" height="32" alt="logo dark">
                                 </a>
 
-                                <a href="{{ route('any', 'index') }}" class="logo-light">
+                                <a href="{{ route('login') }}" class="logo-light">
                                     <img src="/images/logo-light.png" height="28" alt="logo light">
                                 </a>
                             </div>
@@ -41,7 +41,7 @@ class="authentication-bg"
                             <div class="mb-3">
                                 <div class="d-flex justify-content-between align-items-center">
                                     <label for="password" class="form-label">Password</label>
-                                    <a href="{{ route ('second' , ['auth','password']) }}" class="text-decoration-none small text-muted">Forgot password?</a>
+                                    <a href="{{ route ('login') }}" class="text-decoration-none small text-muted">Forgot password?</a>
                                 </div>
                                 <input type="password" class="form-control" id="password" name="password" value="password" placeholder="Enter your password">
                             </div>
@@ -56,7 +56,7 @@ class="authentication-bg"
                     </div>
                 </div>
                 <p class="text-center mt-4 text-white text-opacity-50">Don't have an account?
-                    <a href="{{ route ('second' , ['auth','signup']) }}" class="text-decoration-none text-white fw-bold">Sign Up</a>
+                    {{-- <a href="{{ route ('second' , ['auth','signup']) }}" class="text-decoration-none text-white fw-bold">Sign Up</a> --}}
                 </p>
             </div>
         </div>
