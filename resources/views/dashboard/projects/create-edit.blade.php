@@ -85,8 +85,12 @@
                 <label for="cover_image" class="form-label">Cover Image</label>
                 <input type="file" name="cover_image" id="cover_image" class="form-control @error('cover_image') is-invalid @enderror">
                 @error('cover_image')<div class="invalid-feedback">{{ $message }}</div>@enderror
+                @if (isset($project) && $project->cover_image)
+                    <div class="mt-2">
+                        <img src="{{ asset('storage/' . $project->cover_image) }}" alt="Cover Image" class="img-thumbnail" style="max-height: 150px;">
+                    </div>
+                @endif
             </div>
-
             <div class="col-md-6">
                 <label for="category_id" class="form-label">Category</label>
                 <select name="category_id" id="category_id" class="form-select @error('category_id') is-invalid @enderror">

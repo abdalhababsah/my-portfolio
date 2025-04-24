@@ -44,11 +44,7 @@
                 @error('project_id')<div class="invalid-feedback">{{ $message }}</div>@enderror
             </div>
 
-            <div class="col-md-6">
-                <label for="video_file" class="form-label">Video File</label>
-                <input type="file" name="video_file" id="video_file" class="form-control @error('video_file') is-invalid @enderror">
-                @error('video_file')<div class="invalid-feedback">{{ $message }}</div>@enderror
-            </div>
+
 
             <div class="col-md-6">
                 <label for="caption_en" class="form-label">Caption (EN)</label>
@@ -61,24 +57,42 @@
                 <input type="text" name="caption_ar" id="caption_ar" class="form-control @error('caption_ar') is-invalid @enderror" value="{{ old('caption_ar', $video->caption_ar ?? '') }}">
                 @error('caption_ar')<div class="invalid-feedback">{{ $message }}</div>@enderror
             </div>
-
-            <div class="col-md-6">
-                <label for="thumbnail_path" class="form-label">Thumbnail Image</label>
-                <input type="file" name="thumbnail_path" id="thumbnail_path" class="form-control @error('thumbnail_path') is-invalid @enderror">
-                @error('thumbnail_path')<div class="invalid-feedback">{{ $message }}</div>@enderror
-            </div>
-
             <div class="col-md-6">
                 <label for="thumbnail_alt_en" class="form-label">Thumbnail Alt (EN)</label>
                 <input type="text" name="thumbnail_alt_en" id="thumbnail_alt_en" class="form-control @error('thumbnail_alt_en') is-invalid @enderror" value="{{ old('thumbnail_alt_en', $video->thumbnail_alt_en ?? '') }}">
                 @error('thumbnail_alt_en')<div class="invalid-feedback">{{ $message }}</div>@enderror
             </div>
-
             <div class="col-md-6">
                 <label for="thumbnail_alt_ar" class="form-label">Thumbnail Alt (AR)</label>
                 <input type="text" name="thumbnail_alt_ar" id="thumbnail_alt_ar" class="form-control @error('thumbnail_alt_ar') is-invalid @enderror" value="{{ old('thumbnail_alt_ar', $video->thumbnail_alt_ar ?? '') }}">
                 @error('thumbnail_alt_ar')<div class="invalid-feedback">{{ $message }}</div>@enderror
             </div>
+            <div class="col-md-6">
+                <label for="thumbnail_path" class="form-label">Thumbnail Image</label>
+                <input type="file" name="thumbnail_path" id="thumbnail_path" class="form-control @error('thumbnail_path') is-invalid @enderror">
+                @if(isset($video) && $video->thumbnail_path)
+                    <div class="mt-2">
+                        <img src="{{ asset('storage/' . $video->thumbnail_path) }}" alt="Thumbnail" class="img-thumbnail" width="150">
+                    </div>
+                @endif
+                @error('thumbnail_path')<div class="invalid-feedback">{{ $message }}</div>@enderror
+            </div>
+            <div class="col-md-6">
+                <label for="video_file" class="form-label">Video File</label>
+                <input type="file" name="video_file" id="video_file" class="form-control @error('video_file') is-invalid @enderror">
+                @if(isset($video) && $video->video_url)
+                    <div class="mt-2">
+                        <video width="320" height="240" controls>
+                            <source src="{{ asset('storage/' . $video->video_url) }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                @endif
+                @error('video_file')<div class="invalid-feedback">{{ $message }}</div>@enderror
+            </div>
+
+
+
 
             <div class="col-12">
                 <button type="submit" class="btn btn-primary float-end">
