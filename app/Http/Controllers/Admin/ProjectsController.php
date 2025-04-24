@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Models\Project;
 use App\Http\Resources\ProjectResource;
 use App\Models\Category;
+use App\Models\Tag;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
@@ -85,7 +86,9 @@ class ProjectsController extends Controller
 
     public function create()
     {
-        return view('dashboard.projects.create-edit');
+        $categories = Category::all();
+        $tags = Tag::all();
+        return view('dashboard.projects.create-edit', compact('categories', 'tags'));
     }
 
     public function store(StoreProjectRequest $request)
@@ -100,6 +103,7 @@ class ProjectsController extends Controller
             $data['featured'] = $request->has('featured');
 
             Project::create($data);
+            $data->tags()->sync($request->input('tags', []));
 
             return redirect()->route('projects.index')->with('success', 'Project created successfully.');
         } catch (Exception $e) {
@@ -108,13 +112,15 @@ class ProjectsController extends Controller
         }
     }
 
+
     public function edit($id)
     {
         try {
-            $project = Project::findOrFail($id);
+            $project = Project::with('tags')->findOrFail($id);
             $categories = Category::all();
+            $tags = Tag::all();
 
-            return view('dashboard.projects.create-edit', compact('project', 'categories'));
+            return view('dashboard.projects.create-edit', compact('project', 'categories', 'tags'));
         } catch (Exception $e) {
             Log::error("Error editing project [ID: $id]: " . $e->getMessage());
             return redirect()->route('projects.index')->with('error', 'Project not found.');
@@ -134,6 +140,7 @@ class ProjectsController extends Controller
 
             $project = Project::findOrFail($id);
             $project->update($data);
+            $project->tags()->sync($request->input('tags', []));
 
             return redirect()->route('projects.index')->with('success', 'Project updated successfully.');
         } catch (Exception $e) {

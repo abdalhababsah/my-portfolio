@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\FaqsController;
 use App\Http\Controllers\Frontend\ProjectController;
 use App\Http\Controllers\Admin\ProjectsController;
 use App\Http\Controllers\Admin\servicesController;
-use App\Http\Controllers\Frontend\ServiceController AS UserServicesController;
+use App\Http\Controllers\Frontend\ServiceController as UserServicesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LocalizationController;
 use App\Http\Controllers\RoutingController;
@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\EducationController;
 use App\Http\Controllers\Admin\CertificateController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProjectImageController;
 use App\Http\Controllers\Admin\ProjectTechnologyController;
 use App\Http\Controllers\Admin\SkillsController;
 
@@ -50,7 +51,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::resource('categories', CategoryController::class)->names('categories');
     Route::resource('skills', SkillsController::class)->names('skills');
     Route::resource('project-videos', \App\Http\Controllers\Admin\ProjectVideoController::class);
-    Route::resource('project-technology', ProjectTechnologyController::class);
+    Route::resource('project-images', \App\Http\Controllers\Admin\ProjectImageController::class)->names('project-images');
 
     Route::get('/services',             [servicesController::class, 'index'])->name('admin.services.index');
 });

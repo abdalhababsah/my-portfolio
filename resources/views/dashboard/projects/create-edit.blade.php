@@ -111,6 +111,19 @@
                 <input type="url" name="demo_url" id="demo_url" class="form-control @error('demo_url') is-invalid @enderror" value="{{ old('demo_url', $project->demo_url ?? '') }}">
                 @error('demo_url')<div class="invalid-feedback">{{ $message }}</div>@enderror
             </div>
+            <div class="col-md-6">
+                <label for="tags" class="form-label">Tags</label>
+                <select name="tags[]" id="tags" class="form-select @error('tags') is-invalid @enderror" multiple>
+                    @foreach ($tags as $tag)
+                        <option value="{{ $tag->id }}"
+                            {{ in_array($tag->id, old('tags', isset($project) ? $project->tags->pluck('id')->toArray() : [])) ? 'selected' : '' }}>
+                            {{ $tag->name_en }} | {{ $tag->name_ar }}
+                        </option>
+                    @endforeach
+                </select>
+                @error('tags')<div class="invalid-feedback">{{ $message }}</div>@enderror
+            </div>
+
 
             <div class="col-md-6">
                 <div class="form-check">
